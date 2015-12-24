@@ -1,0 +1,545 @@
+[
+  {
+    "name": "theme_info",
+    "logo": "https:\/\/cdn.shopify.com\/s\/global\/branding\/shopify_logo_256x256.png",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Simple Theme"
+      },
+      {
+        "type": "paragraph",
+        "content": "This theme is fully supported by Shopify. [Contact our support team](mailto:themesupport@shopify.com) if you have questions about this theme."
+      }
+    ]
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "first_color",
+        "label": "Primary",
+        "default": "#333333",
+        "info": "Text, borders, and social icons"
+      },
+      {
+        "type": "color",
+        "id": "second_color",
+        "label": "Secondary",
+        "default": "#999999",
+        "info": "Subtext and link hover"
+      },
+      {
+        "type": "color",
+        "id": "heading_color",
+        "label": "Headings",
+        "default": "#999999"
+      },
+      {
+        "type": "color",
+        "id": "lighter_color",
+        "label": "Light borders",
+        "default": "#e8e8e8",
+        "info": "Social icon background"
+      },
+      {
+        "type": "color",
+        "id": "accent_color",
+        "label": "Accent",
+        "default": "#ff0000"
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "select",
+        "id": "header_font",
+        "label": "Headings",
+        "options": [
+          {
+            "value": "Times, TimesNewRoman, 'Times New Roman', Baskerville, Georgia, serif",
+            "label": "Times"
+          },
+          {
+            "value": "'Helvetica Neue', Arial, Helvetica, Geneva, sans-serif",
+            "label": "Helvetica\/Arial"
+          },
+          {
+            "value": "'Lora', serif",
+            "label": "Lora"
+          },
+          {
+            "value": "'PT Serif', serif",
+            "label": "PT Serif"
+          },
+          {
+            "value": "'Arimo', sans-serif",
+            "label": "Arimo"
+          },
+          {
+            "value": "'Cabin', sans-serif",
+            "label": "Cabin"
+          },
+          {
+            "value": "'Karla', sans-serif",
+            "label": "Karla"
+          },
+          {
+            "value": "'Source Sans Pro', sans-serif",
+            "label": "Source Sans Pro"
+          },
+          {
+            "value": "'Open Sans Condensed', sans-serif",
+            "label": "Open Sans Condensed"
+          },
+          {
+            "value": "'Roboto', sans-serif",
+            "label": "Roboto"
+          },
+          {
+            "value": "'Work Sans', sans-serif",
+            "label": "Work Sans"
+          }
+        ],
+        "default": "Times, TimesNewRoman, 'Times New Roman', Baskerville, Georgia, serif"
+      },
+      {
+        "type": "select",
+        "id": "body_font",
+        "label": "Body",
+        "options": [
+          {
+            "value": "'Helvetica Neue', Arial, Helvetica, Geneva, sans-serif",
+            "label": "Helvetica\/Arial"
+          },
+          {
+            "value": "Times, TimesNewRoman, 'Times New Roman', Baskerville, Georgia, serif",
+            "label": "Times"
+          },
+          {
+            "value": "'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace",
+            "label": "Courier"
+          },
+          {
+            "value": "'Lora', serif",
+            "label": "Lora"
+          },
+          {
+            "value": "'PT Serif', serif",
+            "label": "PT Serif"
+          },
+          {
+            "value": "'Arimo', sans-serif",
+            "label": "Arimo"
+          },
+          {
+            "value": "'Cabin', sans-serif",
+            "label": "Cabin"
+          },
+          {
+            "value": "'Karla', sans-serif",
+            "label": "Karla"
+          },
+          {
+            "value": "'Source Sans Pro', sans-serif",
+            "label": "Source Sans Pro"
+          },
+          {
+            "value": "'Open Sans Condensed', sans-serif",
+            "label": "Open Sans Condensed"
+          },
+          {
+            "value": "'Roboto', sans-serif",
+            "label": "Roboto"
+          },
+          {
+            "value": "'Work Sans', sans-serif",
+            "label": "Work Sans"
+          }
+        ],
+        "default": "'Helvetica Neue', Arial, Helvetica, Geneva, sans-serif"
+      }
+    ]
+  },
+  {
+    "name": "Header",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Logo"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_logo",
+        "label": "Use a custom logo"
+      },
+      {
+        "type": "image",
+        "id": "logo.png",
+        "label": "Custom logo",
+        "info": "400 x 172px .png recommended"
+      },
+      {
+        "type": "header",
+        "content": "Tagline"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_tagline",
+        "label": "Show a tagline in your store’s header"
+      },
+      {
+        "type": "text",
+        "id": "tagline",
+        "label": "Store tagline"
+      },
+      {
+        "type": "header",
+        "content": "Navigation"
+      },
+      {
+        "type": "link_list",
+        "id": "secondary_menu",
+        "label": "Main menu"
+      },
+      {
+        "type": "header",
+        "content": "Search"
+      },
+      {
+        "type": "checkbox",
+        "id": "light_search_icon",
+        "label": "White search icon"
+      },
+      {
+        "type": "checkbox",
+        "id": "light_cart_icon",
+        "label": "White cart icon"
+      }
+    ]
+  },
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Newsletter"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_signup_form",
+        "label": "Show newsletter sign-up"
+      },
+      {
+        "type": "text",
+        "id": "mailchimp_form_action",
+        "label": "MailChimp form action URL",
+        "info": "[Find your MailChimp form action URL](https:\/\/docs.shopify.com\/manual\/configuration\/store-customization\/communicating-with-customers\/accounts-and-newsletters\/get-a-mailchimp-form-action-url)."
+      },
+      {
+        "type": "header",
+        "content": "Footer menu"
+      },
+      {
+        "type": "link_list",
+        "id": "footer_linklist_menu",
+        "label": "Footer menu link list"
+      },
+      {
+        "type": "header",
+        "content": "Content"
+      },
+      {
+        "type": "paragraph",
+        "content": "Choose the page content you want to show in the footer. By default the theme uses the About page."
+      },
+      {
+        "type": "page",
+        "id": "footer_page",
+        "label": "Select page"
+      },
+      {
+        "type": "header",
+        "content": "Payment methods"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_payment_types",
+        "label": "Show icons",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Social media",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Sharing"
+      },
+      {
+        "type": "text",
+        "id": "twittercard_handle",
+        "label": "Twitter handle",
+        "info": "@shopify"
+      },
+      {
+        "type": "checkbox",
+        "id": "social_sharing_products",
+        "label": "Enable product sharing"
+      },
+      {
+        "type": "checkbox",
+        "id": "social_sharing_blog",
+        "label": "Enable blog post sharing"
+      },
+      {
+        "type": "checkbox",
+        "id": "social_sharing_count",
+        "label": "Show shared count",
+        "info": "Available for Facebook, Twitter, and Pinterest."
+      },
+      {
+        "type": "select",
+        "id": "social_sharing_style",
+        "label": "Button style",
+        "options": [
+          {
+            "value": "normal",
+            "label": "Normal"
+          },
+          {
+            "value": "is-large",
+            "label": "Large"
+          },
+          {
+            "value": "is-clean",
+            "label": "Clean"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "id": "share_facebook",
+        "label": "Share on Facebook"
+      },
+      {
+        "type": "checkbox",
+        "id": "share_twitter",
+        "label": "Tweet on Twitter"
+      },
+      {
+        "type": "checkbox",
+        "id": "share_pinterest",
+        "label": "Pin on Pinterest"
+      },
+      {
+        "type": "checkbox",
+        "id": "share_fancy",
+        "label": "Add to Fancy"
+      },
+      {
+        "type": "checkbox",
+        "id": "share_google",
+        "label": "+1 on Google Plus"
+      }
+    ]
+  },
+  {
+    "name": "Home page",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Banner image"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_frontpage_hero",
+        "label": "Show a banner image"
+      },
+      {
+        "type": "image",
+        "id": "hero.jpg",
+        "label": "Image",
+        "info": "950px wide recommended"
+      },
+      {
+        "type": "text",
+        "id": "banner_url",
+        "label": "Link URL"
+      },
+      {
+        "type": "text",
+        "id": "frontpage_hero_alt",
+        "label": "Image alt text"
+      },
+      {
+        "type": "header",
+        "content": "Featured products"
+      },
+      {
+        "type": "collection",
+        "id": "frontpage_collection",
+        "label": "Product collection"
+      }
+    ]
+  },
+  {
+    "name": "Sidebar",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Social media"
+      },
+      {
+        "type": "text",
+        "id": "facebook_url",
+        "label": "Facebook",
+        "info": "https:\/\/facebook.com\/shopify"
+      },
+      {
+        "type": "text",
+        "id": "twitter_url",
+        "label": "Twitter",
+        "info": "https:\/\/twitter.com\/shopify"
+      },
+      {
+        "type": "text",
+        "id": "instagram_url",
+        "label": "Instagram",
+        "info": "https:\/\/instagram.com\/shopify\/"
+      },
+      {
+        "type": "text",
+        "id": "pinterest_url",
+        "label": "Pinterest",
+        "info": "https:\/\/www.pinterest.com\/shopify\/"
+      },
+      {
+        "type": "text",
+        "id": "youtube_url",
+        "label": "YouTube",
+        "info": "https:\/\/www.youtube.com\/user\/shopify"
+      },
+      {
+        "type": "text",
+        "id": "vimeo_url",
+        "label": "Vimeo",
+        "info": "https:\/\/vimeo.com\/shopify"
+      },
+      {
+        "type": "text",
+        "id": "google_url",
+        "label": "Your Google Plus page URL",
+        "info": "https:\/\/plus.google.com\/+shopify"
+      },
+      {
+        "type": "text",
+        "id": "tumblr_url",
+        "label": "Your Tumblr page URL",
+        "info": "http:\/\/shopify.tumblr.com\/"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_rss",
+        "label": "Show RSS"
+      },
+      {
+        "type": "blog",
+        "id": "main_blog",
+        "label": "Blog"
+      }
+    ]
+  },
+  {
+    "name": "Product page",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Page layout"
+      },
+      {
+        "type": "checkbox",
+        "id": "product_desc_right",
+        "label": "Show product descriptions to the right of the main image"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_shipping_tab",
+        "label": "Show a tab next to your product description for additional information (e.g. shipping rates)"
+      },
+      {
+        "type": "page",
+        "id": "shipping_tab_content",
+        "label": "Tab content",
+        "info": "This content will appear in the shipping tab on product pages."
+      },
+      {
+        "type": "header",
+        "content": "Product image"
+      },
+      {
+        "type": "select",
+        "id": "image_enlarge",
+        "label": "Behaviour for main product image",
+        "options": [
+          {
+            "value": "lightbox",
+            "label": "Lightbox"
+          },
+          {
+            "value": "zoom",
+            "label": "Zoom-in"
+          },
+          {
+            "value": "",
+            "label": "None"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Collection page",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Sort"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_sort_by",
+        "label": "Enable collection sorting"
+      }
+    ]
+  },
+  {
+    "name": "Cart page",
+    "settings": [
+      {
+        "type": "select",
+        "id": "cart_type",
+        "label": "Cart type",
+        "options": [
+          {
+            "value": "drawer",
+            "label": "Drawer"
+          },
+          {
+            "value": "page",
+            "label": "Page"
+          }
+        ]
+      }
+    ]
+  }
+]
