@@ -64,6 +64,15 @@
   <script> Shopify.money_format = "{{ shop.money_format }}";</script>
   {{ 'jquery.theme.js' | asset_url | script_tag }}
   {{ content_for_header }}
+
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 </head>
 
 <body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}" >
@@ -139,36 +148,19 @@
     <!--START CONTAINER-->
     <div class="container upper">
       <!--START SIDEBAR-->
-      {% if template != "index" %}
-      <div class="three columns product-search-wrapper">
-        <div id="product-search">
-          <form action="/search" method="get" class="search-form" role="search">
-            <input type="hidden" name="type" value="product" />
-            <input type="submit" id="search-submit" class="icon {% if settings.light_search_icon %}light{% endif %}" />
-            {% if template == "search" and search.performed and search.terms != "" %}
-            <input type="text" name="q" id="search-field" class="search" value="{{ search.terms | escape }}" placeholder="{{ 'general.search.search_form_submit' | t }}"/>
-            {% else %}
-            <input class="search" placeholder="{{ 'general.search.search_form_submit' | t }}" name="q" type="text" id="search-field"  />
-            {% endif %}
-          </form>
-          <br class="clear">
-        </div>
-      </div>
-      {% endif %}
-      <div class="one columns product-search-wrapper">
-        <h1 id="logo">
-          <a href="/">
-            {% if settings.use_logo %}
-            {{ 'logo.png' | asset_url | img_tag: shop.name }}
-            {% else %}
-            <span class="no-logo">{{ shop.name }}</span>
-            {% endif %}
-          </a>
-        </h1>
+
+      <div class="two columns desktop">
+        <a href="/">
+          {% if settings.use_logo %}
+          {{ 'logo.png' | asset_url | img_tag: shop.name }}
+          {% else %}
+          <span class="no-logo">{{ shop.name }}</span>
+          {% endif %}
+        </a>
       </div>
       <!--END SIDEBAR-->
       <!--START TOP NAV-->
-      <div class="thirteen columns offset-by-one desktop" id="nav-link-container">
+      <div class="eleven columns desktop" id="nav-link-container">
         <nav>
           <!--{% for link in linklists[settings.secondary_menu].links %}
           <a href="{{ link.url }}">{{ link.title }}</a>
@@ -291,7 +283,35 @@
 
   <div class="">
     <!--START MAIN-->
-    <div id="main" class="twelve columns offset-by-one">
+    <div id="main">
+      <!-- main header  -->
+      {% if template != 'index' %}
+      <!-- TODO: find a way how to style this thing -->
+      <div class="main-header-wrapper-top">
+        <div class="main-header-label main-header-inline">{{page.handle}}</div>
+      </div>
+      <div class="main-header-wrapper-bottom">
+        <div class="main-header-subtitle">FOR NIPPON BEAUTY</div>
+      </div>
+      <div class="row">
+        <div class="col-sm-offset-10 col-sm-2">
+          <div class="main-header-inline" id="product-search">
+            <form action="/search" method="get" class="search-form" role="search">
+              <div class="search-wrapper">
+                <input type="hidden" name="type" value="product" />
+                {% if template == "search" and search.performed and search.terms != "" %}
+                <input type="text" name="q" id="search-field" class="search" value="{{ search.terms | escape }}" placeholder="{{ 'general.search.search_form_submit' | t }}"/>
+                {% else %}
+                <input class="search" placeholder="{{ 'general.search.search_form_submit' | t }}" name="q" type="text" id="search-field"  />
+                <input type="submit" id="search-submit" class="icon {% if settings.light_search_icon %}light{% endif %}" />
+              </div>
+              {% endif %}
+            </form>
+            <br class="clear">
+          </div>
+        </div>
+      </div>
+      {% endif %}
       <div id="page-content">
       {{ content_for_layout }}
       <br class="clear">
