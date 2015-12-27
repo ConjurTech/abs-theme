@@ -79,7 +79,7 @@
  {% if settings.cart_type == 'drawer' %}
   <!--START DRAWER-->
   <div id="drawer">
-    <div class="container">
+    <div class="">
       {% if cart.item_count > 0 %}
       <form action="/cart" method="post" name="cartform">
         {% for item in cart.items %}
@@ -139,6 +139,7 @@
     <!--START CONTAINER-->
     <div class="container upper">
       <!--START SIDEBAR-->
+      {% if template != "index" %}
       <div class="three columns product-search-wrapper">
         <div id="product-search">
           <form action="/search" method="get" class="search-form" role="search">
@@ -153,15 +154,33 @@
           <br class="clear">
         </div>
       </div>
+      {% endif %}
+      <div class="one columns product-search-wrapper">
+        <h1 id="logo">
+          <a href="/">
+            {% if settings.use_logo %}
+            {{ 'logo.png' | asset_url | img_tag: shop.name }}
+            {% else %}
+            <span class="no-logo">{{ shop.name }}</span>
+            {% endif %}
+          </a>
+        </h1>
+      </div>
       <!--END SIDEBAR-->
       <!--START TOP NAV-->
-      <div class="seven columns offset-by-one desktop">
+      <div class="thirteen columns offset-by-one desktop" id="nav-link-container">
         <nav>
           <!--{% for link in linklists[settings.secondary_menu].links %}
           <a href="{{ link.url }}">{{ link.title }}</a>
           {% endfor %}-->
           <a href="/#">Home</a>
           <a href="/pages/brands">Brands</a>
+          <a href="/pages/new">What's New</a>
+          <a href="/pages/bestsellers">Bestsellers</a>
+          <a href="/pages/events">Events and Promotions</a>
+          <a href="/pages/reviews">Reviews</a>
+          <a href="/pages/boutiques">Boutiques</a>
+          <a href="/pages/awards">Awards</a>
 
           {% if shop.customer_accounts_enabled %}
             {% if customer %}
@@ -178,10 +197,9 @@
       </div>
       <!--END TOP NAV-->
       <!--START MINICART-->
-      <div class="five columns minicart-wrapper">
+      <div class="one columns minicart-wrapper">
         <div id="minicart">
           <a href="{% if settings.cart_type == 'drawer' %}#{% else %}/cart{% endif %}" class="{% if settings.cart_type == 'drawer' %}toggle-drawer{% endif %} cart desktop {% if settings.light_cart_icon %}light{% endif %}"></a>
-          <a href="/cart" class="cart mobile {% if settings.light_cart_icon %}light{% endif %} cart-target">{{ 'layout.general.header_cart_title' | t }}<span id="cart-target-mobile" class="count cart-target"> ({{ cart.item_count }})</span></a>
          <!-- {% if settings.cart_type == 'drawer' %} <a href="/cart" class="checkout">{{ 'layout.general.header_checkout_text' | t }}</a> {% endif %} -->
         </div>
       </div>
@@ -190,7 +208,8 @@
     <!--END CONTAINER-->
 
     <!--START CONTAINER-->
-    <div class="container lower">
+
+    <!--<div class="container lower">
       <div class="sixteen columns">
         <div class="table logo-tagline">
           <div class="table-cell">
@@ -222,145 +241,55 @@
           </div>
         </div>
       </div>
-    </div>
+    </div>-->
 
   </header>
     <!--START HEADER-->
   <!--START CONTAINER-->
-  <div class="container">
-    <!--START SIDEBAR-->
-    <div id="sidebar" class="three columns">
-      <nav>
-        <a href="#" id="toggle-menu" class="mobile"><span>{{ 'layout.general.menu_title' | t }}</span></a>
-        <ul id="main-menu" class="accordion">
-          {% for link in linklists.main-menu.links %}
-            {% assign has_sub_menu = false %}
-            {% assign parent_link_active = false %}
-            {% assign child_list_handle = link.title | handle %}
-            {% if linklists[child_list_handle] and linklists[child_list_handle].links.size > 0 %}
-              {% assign has_sub_menu = true %}
-              {% for l in linklists[child_list_handle].links %}
-                {% if l.active %}
-                  {% assign parent_link_active = true %}
-                {% endif %}
-              {% endfor %}
-            {% endif %}
-            {% if has_sub_menu %}
-            <li>
-              <a href="#" class="accordion-button">{{ link.title }}
-                <span>{% if link.active or parent_link_active  %}-{% else %}+{% endif %}</span>
-              </a>
-              <div class="accordion-content" {% unless parent_link_active %}style="display:none"{% endunless %} >
-                {% for l in linklists[child_list_handle].links %}
-                  <a href="{{ l.url }}" {% if l.active %}class="active"{% endif %}>{{ l.title }} </a>
-                {% endfor %}
-              </div>
-            </li>
-            {% else %}
-            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-            {% endif %}
-          {% endfor %}
-          {% if shop.customer_accounts_enabled %}
-            {% if customer %}
-            <li class="mobile"><a href="/account">{{ 'customer.account.your_account' | t }}</a></li>
-            <li class="mobile">{{ 'customer.account.log_out' | t | customer_logout_link }}</li>
-            {% else %}
-            <li class="mobile">{{ 'customer.account.log_in' | t | customer_login_link }}</li>
-            {% if shop.customer_accounts_optional %}
-            <li class="mobile">{{ 'customer.account.create_account' | t | customer_register_link }}</li>
-            {% endif %}
-            {% endif %}
+  <div class="">
+  <!--START SIDEBAR-->
+  <div id="sidebar" class="three columns" style="display: none;">
+    <nav>
+      <a href="#" id="toggle-menu" class="mobile"><span>{{ 'layout.general.menu_title' | t }}</span></a>
+      <ul id="main-menu" class="accordion">
+        <li><a href="/#">Home</a></li>
+        <li><a href="/pages/brands">Brands</a></li>
+        <li><a href="/pages/new">What's New</a></li>
+        <li><a href="/pages/bestsellers">Bestsellers</a></li>
+        <li><a href="/pages/events">Events and Promotions</a></li>
+        <li><a href="/pages/reviews">Reviews</a></li>
+        <li><a href="/pages/boutiques">Boutiques</a></li>
+        <li><a href="/pages/awards">Awards</a></li>
+        <li><a href="/cart" class="cart mobile {% if settings.light_cart_icon %}light{% endif %} cart-target">{{ 'layout.general.header_cart_title' | t }}<span id="cart-target-mobile" class="count cart-target"> ({{ cart.item_count }})</span></a></li>
+        {% if shop.customer_accounts_enabled %}
+          {% if customer %}
+          <li class="mobile"><a href="/account">{{ 'customer.account.your_account' | t }}</a></li>
+          <li class="mobile">{{ 'customer.account.log_out' | t | customer_logout_link }}</li>
+          {% else %}
+          <li class="mobile">{{ 'customer.account.log_in' | t | customer_login_link }}</li>
+          {% if shop.customer_accounts_optional %}
+          <li class="mobile">{{ 'customer.account.create_account' | t | customer_register_link }}</li>
           {% endif %}
-        </ul>
-
-         <div class="inline-list social-icons">
-
-           {% if settings.facebook_url != blank %}
-            <span>
-              <a class="icon-fallback-text" href="{{ settings.facebook_url }}" target="_blank" title="{{ shop.name }} on Facebook">
-                <span class="social-link-icon social-link-icon-facebook" aria-hidden="true"></span>
-                <span class="fallback-text">Facebook</span>
-              </a>
-            </span>
           {% endif %}
+        {% endif %}
+      </ul>
+    </nav>
+  </div>
+  <script>
+  if ($(window).width() < 768) {
+    $("#sidebar").show();
+  }
+  $( window ).resize(function() {
+    if ($(window).width() >= 768) {
+      $("#sidebar").hide();
+    } else {
+      $("#sidebar").show();
+    }
+  });
+  </script>
+  <!--END SIDEBAR-->
 
-          {% if settings.twitter_url != blank %}
-            <span>
-              <a class="icon-fallback-text" href="{{ settings.twitter_url }}" target="_blank" title="{{ shop.name }} on Twitter">
-                <span class="social-link-icon social-link-icon-twitter" aria-hidden="true"></span>
-                <span class="fallback-text">Twitter</span>
-              </a>
-            </span>
-          {% endif %}
-
-          {% if settings.google_url != blank %}
-            <span>
-              <a class="icon-fallback-text" href="{{ settings.google_url }}" rel="publisher" target="_blank" title="{{ shop.name }} on Google Plus">
-                <span class="social-link-icon social-link-icon-google" aria-hidden="true"></span>
-                <span class="fallback-text">Google Plus</span>
-              </a>
-            </span>
-          {% endif %}
-
-          {% if settings.instagram_url != blank %}
-            <span>
-              <a class="icon-fallback-text" href="{{ settings.instagram_url }}" target="_blank" title="{{ shop.name }} on Instagram">
-                <span class="social-link-icon social-link-icon-instagram" aria-hidden="true"></span>
-                <span class="fallback-text">Instagram</span>
-              </a>
-            </span>
-          {% endif %}
-
-          {% if settings.pinterest_url != blank %}
-            <span>
-              <a class="icon-fallback-text" href="{{ settings.pinterest_url }}" target="_blank" title="{{ shop.name }} on Pinterest">
-                <span class="social-link-icon social-link-icon-pinterest" aria-hidden="true"></span>
-                <span class="fallback-text">Pinterest</span>
-              </a>
-            </span>
-          {% endif %}
-
-          {% if settings.youtube_url != blank %}
-            <span>
-              <a class="icon-fallback-text" href="{{ settings.youtube_url }}" target="_blank" title="{{ shop.name }} on Youtube">
-                <span class="social-link-icon social-link-icon-youtube" aria-hidden="true"></span>
-                <span class="fallback-text">Youtube</span>
-              </a>
-            </span>
-          {% endif %}
-
-          {% if settings.vimeo_url != blank %}
-            <span>
-              <a class="icon-fallback-text" href="{{ settings.vimeo_url }}" target="_blank" title="{{ shop.name }} on Youtube">
-                <span class="social-link-icon social-link-icon-vimeo" aria-hidden="true"></span>
-                <span class="fallback-text">Vimeo</span>
-              </a>
-            </span>
-          {% endif %}
-
-          {% if settings.tumblr_url != blank %}
-            <span>
-              <a class="icon-fallback-text" href="{{ settings.tumblr_url }}" target="_blank" title="{{ shop.name }} on Tumblr">
-                <span class="social-link-icon social-link-icon-tumblr" aria-hidden="true"></span>
-                <span class="fallback-text">Tumblr</span>
-              </a>
-            </span>
-          {% endif %}
-
-          {% if settings.show_rss != blank %}
-            <span>
-              <a class="icon-fallback-text" href="/blogs/{{ settings.main_blog }}.atom" target="_blank" title="{{ shop.name }} on RSS">
-                <span class="social-link-icon social-link-icon-rss" aria-hidden="true"></span>
-                <span class="fallback-text">RSS</span>
-              </a>
-            </span>
-          {% endif %}
-
-        </div>
-
-      </nav>
-    </div>
-    <!--END SIDEBAR-->
+  <div class="">
     <!--START MAIN-->
     <div id="main" class="twelve columns offset-by-one">
       <div id="page-content">
@@ -371,67 +300,8 @@
     <!--END MAIN-->
     <br class="clear">
     <!--START FOOTER-->
+    {% if template != 'index' %}
     <footer>
-      <section class="upper">
-
-        <!--START NAV-->
-        <div class="three columns ">
-          <nav>
-            {% if settings.footer_linklist_menu != blank %}
-              <h2>{{ 'layout.footer.footer_menu_title' | t }}</h2>
-              {% for link in linklists[settings.footer_linklist_menu].links %}
-                <a href="{{ link.url }}">{{ link.title }}</a> {% unless forloop.last %}<br>{% endunless %}
-              {% endfor %}
-            {% endif %}
-          </nav>
-        </div>
-        <!--END NAV-->
-
-        <!--START PAGE CONTENT-->
-        <div class="eight offset-by-one columns">
-          <div id="footer-content">
-            {% if settings.footer_page == blank %}
-            {% else %}
-            <h2>{{ pages[settings.footer_page].title }}</h2>
-            <div>{{ pages[settings.footer_page].content }}</div>
-            {% endif %}
-            {% if settings.show_signup_form %}{% include 'credit-cards' %}{% endif %}
-          </div>
-        </div>
-        <!--END PAGE CONTENT-->
-
-        <!--START MAILING LIST / OR CREDIT CARDS-->
-        <div class="three columns offset-by-one">
-          {% if settings.show_signup_form %}
-          <div id="mailing-list">
-            <h2>{{ 'layout.footer.mailing_list_title' | t }}</h2>
-            {% if settings.mailchimp_form_action.size > 0 %}
-            <form action="{{ settings.mailchimp_form_action }}" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
-              <label>{{ 'layout.footer.mailing_list_label' | t }}</label>
-              <input type="email" placeholder="{{ 'layout.footer.mailing_list_placeholder' | t }}" name="EMAIL" id="email-input" />
-              <input type="submit" value="{{ 'layout.footer.mailing_list_submit' | t }}" id="email-submit" />
-            </form>
-            {% else %}
-              <form id="email-alerts-footer" class="mailing-list" action="/contact" method="post">
-                <input type="hidden" value="customer" name="form_type">
-                <span class="success"><em>{{ 'layout.footer.mailing_list_success_message' | t }}</em></span>
-                <input type="hidden" id="contact_tags" name="contact[tags]" value="prospect,mailing-list" />
-                <input type="hidden" id="mailinglist-first-name" name="contact[first_name]" value="Subscriber" />
-                <input type="hidden" id="mailinglist-last-name" name="contact[last_name]" value="Mailing List" />
-                <label>{{ 'layout.footer.mailing_list_label' | t }}</label>
-                <input type="email" placeholder="{{ 'layout.footer.mailing_list_placeholder' | t }}" name="contact[email]" id="email-input" class="required email" />
-                <input type="submit" value="{{ 'layout.footer.mailing_list_submit' | t }}" class="button secondary" name="subscribe" id="email-submit" />
-              </form>
-            {% endif %}
-          </div>
-          {% else %}
-          {% include 'credit-cards' %}
-          {% endif %}
-        </div>
-        <!--END MAILING LIST / CREDIT CARDS-->
-
-        <br class="clear">
-      </section>
       <section class="lower">
         <div class="nine columns">
           <div class="legals">
@@ -439,7 +309,7 @@
             {{ 'layout.copyright.copyright_html' | t: year: current_year }}, {{ shop.name | link_to: '/' }}. {{ powered_by_link }}.
           </div>
         </div>
-        <div class="six columns offset-by-one">
+        <!-- <div class="six columns offset-by-one">
           {% if linklists.footer.links.size > 0 %}
           <nav>
             {% for link in linklists.footer.links %}
@@ -447,10 +317,99 @@
               {% endfor %}
           </nav>
           {% endif %}
-        </div>
+        </div> -->
+
+        <div class="six columns offset-by-one">
+          <div class="inline-list social-icons">
+
+            {% if settings.facebook_url != blank %}
+             <span>
+               <a class="icon-fallback-text" href="{{ settings.facebook_url }}" target="_blank" title="{{ shop.name }} on Facebook">
+                 <span class="social-link-icon social-link-icon-facebook" aria-hidden="true"></span>
+                 <span class="fallback-text">Facebook</span>
+               </a>
+             </span>
+           {% endif %}
+
+           {% if settings.twitter_url != blank %}
+             <span>
+               <a class="icon-fallback-text" href="{{ settings.twitter_url }}" target="_blank" title="{{ shop.name }} on Twitter">
+                 <span class="social-link-icon social-link-icon-twitter" aria-hidden="true"></span>
+                 <span class="fallback-text">Twitter</span>
+               </a>
+             </span>
+           {% endif %}
+
+           {% if settings.google_url != blank %}
+             <span>
+               <a class="icon-fallback-text" href="{{ settings.google_url }}" rel="publisher" target="_blank" title="{{ shop.name }} on Google Plus">
+                 <span class="social-link-icon social-link-icon-google" aria-hidden="true"></span>
+                 <span class="fallback-text">Google Plus</span>
+               </a>
+             </span>
+           {% endif %}
+
+           {% if settings.instagram_url != blank %}
+             <span>
+               <a class="icon-fallback-text" href="{{ settings.instagram_url }}" target="_blank" title="{{ shop.name }} on Instagram">
+                 <span class="social-link-icon social-link-icon-instagram" aria-hidden="true"></span>
+                 <span class="fallback-text">Instagram</span>
+               </a>
+             </span>
+           {% endif %}
+
+           {% if settings.pinterest_url != blank %}
+             <span>
+               <a class="icon-fallback-text" href="{{ settings.pinterest_url }}" target="_blank" title="{{ shop.name }} on Pinterest">
+                 <span class="social-link-icon social-link-icon-pinterest" aria-hidden="true"></span>
+                 <span class="fallback-text">Pinterest</span>
+               </a>
+             </span>
+           {% endif %}
+
+           {% if settings.youtube_url != blank %}
+             <span>
+               <a class="icon-fallback-text" href="{{ settings.youtube_url }}" target="_blank" title="{{ shop.name }} on Youtube">
+                 <span class="social-link-icon social-link-icon-youtube" aria-hidden="true"></span>
+                 <span class="fallback-text">Youtube</span>
+               </a>
+             </span>
+           {% endif %}
+
+           {% if settings.vimeo_url != blank %}
+             <span>
+               <a class="icon-fallback-text" href="{{ settings.vimeo_url }}" target="_blank" title="{{ shop.name }} on Youtube">
+                 <span class="social-link-icon social-link-icon-vimeo" aria-hidden="true"></span>
+                 <span class="fallback-text">Vimeo</span>
+               </a>
+             </span>
+           {% endif %}
+
+           {% if settings.tumblr_url != blank %}
+             <span>
+               <a class="icon-fallback-text" href="{{ settings.tumblr_url }}" target="_blank" title="{{ shop.name }} on Tumblr">
+                 <span class="social-link-icon social-link-icon-tumblr" aria-hidden="true"></span>
+                 <span class="fallback-text">Tumblr</span>
+               </a>
+             </span>
+           {% endif %}
+
+           {% if settings.show_rss != blank %}
+             <span>
+               <a class="icon-fallback-text" href="/blogs/{{ settings.main_blog }}.atom" target="_blank" title="{{ shop.name }} on RSS">
+                 <span class="social-link-icon social-link-icon-rss" aria-hidden="true"></span>
+                 <span class="fallback-text">RSS</span>
+               </a>
+             </span>
+           {% endif %}
+
+         </div>
+       </div>
+
       </section>
       <br class="clear">
     </footer>
+    {% endif %}
     <!--END FOOTER-->
   </div>
   <!-- END CONTAINER-->

@@ -1,4 +1,45 @@
-.toggle-drawer.cart  {
-  background-repeat: no-repeat;
-  background-image: url({{'shopping-bag.png' | asset_url}});
+$green-color: #1caca3;
+$nav-links-top-offset: 10px;
+
+// Landing Page
+
+div.container.upper, div#page-content {
+  border: none !important;
+}
+
+nav {
+  a {
+    color: $green-color;
+    font-size: 16px;
+    margin: 0px !important;
+    padding: 0 10px;
+    border-right: solid 2px pink;
+    &:visited {
+      color: $green-color;
+    }
+    &:hover {
+      color: $green-color;
+    }
+  }
+
+  a:first-child  {
+    border-left: solid 2px pink;
+  }
+}
+
+#nav-link-container {
+  margin-top: $nav-links-top-offset;
+}
+
+.minicart-wrapper {
+  margin-top: $nav-links-top-offset;
+  .toggle-drawer.cart  {
+    background-repeat: no-repeat;
+    background-image: url({{'shopping-bag.png' | asset_url}});
+  }
+}
+
+#landing-page-image {
+  background-image: url({{'landing-splash.jpg' | asset_url}});
+  height: 100vh;
 }
