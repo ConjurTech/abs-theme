@@ -43,6 +43,7 @@
   <link href='//fonts.googleapis.com/css?family=Arimo:400,700' rel='stylesheet' type='text/css'>
   {% endif %}
   {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
+  {{ 'custom-theme.scss.css' | asset_url | stylesheet_tag }}
   {{ 'modernizr.min.js' | asset_url | script_tag }}
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js" type="text/javascript"></script>
   {{ 'jquery.fancybox.js' | asset_url | script_tag }}
@@ -156,9 +157,12 @@
       <!--START TOP NAV-->
       <div class="seven columns offset-by-one desktop">
         <nav>
-          {% for link in linklists[settings.secondary_menu].links %}
+          <!--{% for link in linklists[settings.secondary_menu].links %}
           <a href="{{ link.url }}">{{ link.title }}</a>
-          {% endfor %}
+          {% endfor %}-->
+          <a href="/#">Home</a>
+          <a href="/pages/brands">Brands</a>
+
           {% if shop.customer_accounts_enabled %}
             {% if customer %}
               <a href="/account">{{ 'customer.account.your_account' | t }}</a>
@@ -176,9 +180,9 @@
       <!--START MINICART-->
       <div class="five columns minicart-wrapper">
         <div id="minicart">
-          <a href="{% if settings.cart_type == 'drawer' %}#{% else %}/cart{% endif %}" class="{% if settings.cart_type == 'drawer' %}toggle-drawer{% endif %} cart desktop {% if settings.light_cart_icon %}light{% endif %}">{{ 'layout.general.header_cart_title' | t }}<span id="cart-target-desktop" class="count cart-target"> ({{ cart.item_count }})</span></a>
+          <a href="{% if settings.cart_type == 'drawer' %}#{% else %}/cart{% endif %}" class="{% if settings.cart_type == 'drawer' %}toggle-drawer{% endif %} cart desktop {% if settings.light_cart_icon %}light{% endif %}"></a>
           <a href="/cart" class="cart mobile {% if settings.light_cart_icon %}light{% endif %} cart-target">{{ 'layout.general.header_cart_title' | t }}<span id="cart-target-mobile" class="count cart-target"> ({{ cart.item_count }})</span></a>
-         {% if settings.cart_type == 'drawer' %} <a href="/cart" class="checkout">{{ 'layout.general.header_checkout_text' | t }}</a> {% endif %}
+         <!-- {% if settings.cart_type == 'drawer' %} <a href="/cart" class="checkout">{{ 'layout.general.header_checkout_text' | t }}</a> {% endif %} -->
         </div>
       </div>
       <!--END MINI CART-->
@@ -208,7 +212,7 @@
                 {% if settings.tagline != blank %}
                   {{ settings.tagline }}
                 {% elsif cart.announcements.size > 0 %}
-                  {{ cart.announcements.first }} 
+                  {{ cart.announcements.first }}
                 {% else %}
                   {{ 'layout.onboarding.tagline_text' | t }}
                 {% endif %}
@@ -451,4 +455,5 @@
   </div>
   <!-- END CONTAINER-->
 </body>
+
 </html>
