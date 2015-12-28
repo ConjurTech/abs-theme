@@ -8,12 +8,15 @@
   <div class="row">
     <div class="col-sm-4">
       <div class="brand-image-wrapper">
-        {% assign collection_type = collection.description | truncate: 15 %}
+        {% assign collection_type = collection.description | strip_html | truncate: 15 %}
         {% if collection_type == 'SANA-COLLECT...'%}
           <div><img src="{{ 'sana-brand.png' | asset_url }}" class="img-responsive"/></div>
         {% endif %}
+        {% if collection_type == 'NOVV-COLLECT...'%}
+          <div><img src="{{ 'sana-brand.png' | asset_url }}" class="img-responsive"/></div>
+        {% endif %}
         <span>
-          {% assign collection_description = collection.description | remove_first: 'SANA-COLLECTION:' %}
+          {% assign collection_description = collection.description | strip_html | remove_first: 'SANA-COLLECTION:' %}
           {{ collection_description }}
         </span>
       </div>
