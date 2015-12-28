@@ -1,32 +1,43 @@
 {% paginate collection.products by 48 %}
-{% include 'breadcrumb' %}
-{% if settings.show_sort_by and collection.products_count > 1 %}
-  {% include 'collection-sort' %}
-{% endif %}
-{% if current_tags.size > 0 %}
-<h1>{{ current_tags.first }}</h1>
-{% else %}
-<h1>{{ collection.title }}</h1>
-{% endif %}
-{% if collection.description.size > 0 %}
+
 <!--START HERO-->
-<div class="twelve columns alpha omega">
-  <div id="collection-description" class="animated fadeInUpBig wysiwyg">
-  {{ collection.description }}
+<div class="container-fluid">
+  <div class="row">
+  {% if collection.description.size > 0 %}
+  {% include 'collection-sort' %}
+  {% endif %}
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="brand-image-wrapper">
+        {% assign collection_type = collection.description | truncate: 15 %}
+        {% if collection_type == 'SANA-COLLECT...'%}
+          <div><img src="{{ 'sana-brand.png' | asset_url }}" class="img-responsive"/></div>
+        {% endif %}
+        <span>
+          {% assign collection_description = collection.description | remove_first: 'SANA-COLLECTION:' %}
+          {{ collection_description }}
+        </span>
+      </div>
+    </div>
+
+    <div class="col-sm-8">
+      <!--START PRODUCT GRID-->
+      {% if collection.products.size > 0 %}
+        <div class="row">
+        {% for product in collection.products %}
+          {% include 'product-grid-item' %}
+        {% endfor %}
+        </div>
+      {% else %}
+        <p id="no-products">{{ 'collections.general.empty_collection_message' | t }}</p>
+      {% endif %}
+      <!--END PRODUCT GRID-->
+    </div>
   </div>
 </div>
 <!--END HERO-->
-{% endif %}
-<!--START PRODUCT GRID-->
-<section class="product-grid twelve columns alpha omega">
-  {% if collection.products.size > 0 %}
-    {% for product in collection.products %}
-      {% include 'product-grid-item' %}
-    {% endfor %}
-  {% else %}
-    <p id="no-products" class="animated fadeInUpBig">{{ 'collections.general.empty_collection_message' | t }}</p>
-  {% endif %}
-</section>
-<!--END PRODUCT GRID-->
+
+
 {% include 'paging' %}
 {% endpaginate %}
