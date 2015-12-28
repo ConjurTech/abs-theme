@@ -1,5 +1,6 @@
 $light-pink: #f3afc5;
 $green: #1caca3;
+$blue: #21ace3;
 $nav-links-top-offset: 20px;
 
 div.container.upper, div#page-content {
@@ -11,29 +12,27 @@ div.container.upper, div#page-content {
   height: 100vh;
 }
 
-
 // Navbar
 #nav-link-container {
   margin-top: $nav-links-top-offset;
-}
-
-nav {
-  a {
-    color: $green;
-    font-size: 16px;
-    margin: 0px !important;
-    padding: 0 10px;
-    border-right: solid 2px $light-pink;
-    &:visited {
+  nav {
+    a {
       color: $green;
+      font-size: 16px;
+      margin: 0px !important;
+      padding: 0 10px;
+      border-right: solid 2px $light-pink;
+      &:visited {
+        color: $green;
+      }
+      &:hover {
+        color: $green;
+      }
     }
-    &:hover {
-      color: $green;
-    }
-  }
 
-  a:first-child  {
-    border-left: solid 2px $light-pink;
+    a:first-child  {
+      border-left: solid 2px $light-pink;
+    }
   }
 }
 
@@ -99,6 +98,46 @@ nav {
 
 #page-content {
   overflow: visible !important;
+}
+
+// Footer
+footer {
+  background-image: url({{'bg_footer.png' | asset_url}});
+  border: 1px solid $blue;
+  border-left-width: 2px;
+  border-right-width: 2px;
+  h2 {
+    margin-top: 10px;
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  input[type="email"] {
+    border: 1px solid $blue;
+    border-radius: 0;
+    display: inline-block;
+  }
+  input[type="submit"] {
+    border: 1px solid $blue!important;
+    background: $blue!important;
+    margin-left: -4px;
+    height: 27px;
+    &:hover {
+      background: $blue!important;
+    }
+  }
+  form, input {
+    margin-bottom: 0!important;
+  }
+  .row {
+    margin-bottom: 10px;
+  }
+  .social-icons {
+    text-align: right;
+    img {
+      width: 45px;
+    }
+  }
 }
 
 // Brands

@@ -2367,7 +2367,7 @@ $heading-color: {{ settings.heading_color }};
     margin-top: 30px;
   }
   footer section.upper {
-    border-top: 1px solid {{ settings.lighter_color }};
+    //border-top: 1px solid {{ settings.lighter_color }};
   }
   footer section.upper div.columns {
     padding-top: 25px;
@@ -2383,7 +2383,7 @@ $heading-color: {{ settings.heading_color }};
     font-size: 12px;
   }
   footer section.upper div#mailing-list form input[type="submit"] {
-    background: {{ settings.first_color }} !important;
+    //background: {{ settings.first_color }} !important;
     font-size: 10px;
     font-weight: normal;
     color: {{ settings.background_color }};
@@ -2403,21 +2403,27 @@ $heading-color: {{ settings.heading_color }};
     margin-bottom: 20px;
   }
   footer section.lower {
-    border-top: 1px solid {{ settings.lighter_color }};
+    //border-top: 1px solid {{ settings.lighter_color }};
     margin-bottom: 0;
   }
   footer section.lower div.columns {
     padding: 15px 0;
   }
   footer section.lower div div.legals {
-    color: {{ settings.second_color }};
+    font-size: 12px;
+    color: #231f20;
   }
   footer section.lower div nav {
-    text-align: right;
+    //text-align: right;
   }
   footer section.lower div nav a {
-    margin-left: 15px;
+    margin-right: 15px;
     border-bottom: none;
+    color: #231f20;
+    &:hover {
+      text-decoration: none;
+      border-bottom: 4px solid pink;
+    }
   }
   footer div#payment-methods {
     min-height: auto !important;

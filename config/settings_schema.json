@@ -112,14 +112,32 @@
       },
       {
         "type": "header",
-        "content": "Payment methods"
+        "content": "Social Media Links"
       },
       {
-        "type": "checkbox",
-        "id": "show_payment_types",
-        "label": "Show icons",
-        "default": true
-      }
+         "type": "text",
+         "id": "facebook_url",
+         "label": "Facebook",
+         "info": "https:\/\/facebook.com\/shopify"
+       },
+       {
+         "type": "text",
+         "id": "instagram_url",
+         "label": "Instagram",
+         "info": "https:\/\/instagram.com\/shopify\/"
+       },
+       {
+         "type": "text",
+         "id": "snapchat_url",
+         "label": "Snapchat",
+         "info": "https:\/\/www.snapchat.com\/shopify\/"
+       },
+       {
+         "type": "text",
+         "id": "youtube_url",
+         "label": "YouTube",
+         "info": "https:\/\/www.youtube.com\/user\/shopify"
+       }
     ]
   },
   {

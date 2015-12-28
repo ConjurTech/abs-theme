@@ -86,15 +86,15 @@
       "tagline_text": "Head on over to your theme settings to enter a tagline!"
     },
     "footer": {
-      "mailing_list_title": "Mailing List",
+      "mailing_list_title": "Subscribe To Get Our Latest Updates!",
       "mailing_list_label": "Your Email Address",
-      "mailing_list_placeholder": "you@email.com",
-      "mailing_list_submit": "Sign Up",
+      "mailing_list_placeholder": "Enter Email",
+      "mailing_list_submit": "Submit",
       "mailing_list_success_message": "Thank you for signing up!",
       "footer_menu_title": "Quick Links"
     },
     "copyright": {
-      "copyright_html": "Copyright &copy; {{ year }}"
+      "copyright_html": "Copyright &copy; {{ year }} Able International Pte Ltd. All rights reserved. Web Design by Able."
     }
   },
   "cart": {
