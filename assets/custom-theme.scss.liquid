@@ -1,4 +1,5 @@
-$green-color: #1caca3;
+$light-pink: #f3afc5;
+$green: #1caca3;
 $nav-links-top-offset: 20px;
 
 div.container.upper, div#page-content {
@@ -18,21 +19,21 @@ div.container.upper, div#page-content {
 
 nav {
   a {
-    color: $green-color;
+    color: $green;
     font-size: 16px;
     margin: 0px !important;
     padding: 0 10px;
-    border-right: solid 2px pink;
+    border-right: solid 2px $light-pink;
     &:visited {
-      color: $green-color;
+      color: $green;
     }
     &:hover {
-      color: $green-color;
+      color: $green;
     }
   }
 
   a:first-child  {
-    border-left: solid 2px pink;
+    border-left: solid 2px $light-pink;
   }
 }
 
@@ -84,7 +85,7 @@ nav {
   input.search {
     float: left;
     width: 130px;
-    border: 1px solid pink;
+    border: 1px solid $light-pink;
     padding: 5px;
     margin-bottom: 0;
     margin-left: 5px;
@@ -120,14 +121,47 @@ nav {
   li {
     display: inline-block;
   }
+  #video-container {
+    border: 2px solid $light-pink;
+    padding: 20px 70px;
+    .video-nav {
+      content: " ";
+      cursor: pointer;
+      position: absolute;
+      display: inline-block;
+      background-size: 25px;
+      width: 25px;
+      height: 25px;
+      top: calc(50% - 25px);
+      &.previous {
+        left: 15px;
+        background-image: url({{ 'left-arrow.png' | asset_url}});
+      }
+      &.next {
+        right: 15px;
+        background-image: url({{ 'right-arrow.png' | asset_url}});
+      }
+    }
+  }
+  .video-description {
+    margin-top: 10px;
+    text-align: center;
+    font-weight: bold;
+  }
   .video-title {
     display: block;
     text-align: center;
+    font-size: 22px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid $light-pink;
   }
-  .review-video-overlay {
+  .video-overlay {
     display: inline-block;
   }
 }
+
 // Products
 .product-grid-item a {
   color: black;

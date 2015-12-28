@@ -248,51 +248,103 @@
     "settings": [
       {
         "type": "text",
-        "id": "review_video_1",
-        "label": "Review Video 1",
-        "info": "Youtube video ID for review video"
+        "id": "review_video_sk_1",
+        "label": "Skin Care Video 1",
+        "info": "Youtube video ID for video",
+        "default": "MXitFtMKSwc"
       },
       {
         "type": "text",
-        "id": "review_text_1",
-        "label": "Review Title 1",
-        "info": "Title / heading for review video"
+        "id": "review_video_sk_2",
+        "label": "Skin Care Video 2",
+        "info": "Youtube video ID for video"
       },
       {
         "type": "text",
-        "id": "review_video_2",
-        "label": "Review Video 2",
-        "info": "Youtube video ID for review video"
+        "id": "review_video_sk_3",
+        "label": "Skin Care Video 3",
+        "info": "Youtube video ID for video"
       },
       {
         "type": "text",
-        "id": "review_text_2",
-        "label": "Review Title 2",
-        "info": "Title / heading for review video"
+        "id": "review_video_sk_4",
+        "label": "Skin Care Video 4",
+        "info": "Youtube video ID for video"
       },
       {
         "type": "text",
-        "id": "review_video_3",
-        "label": "Review Video 3",
-        "info": "Youtube video ID for review video"
+        "id": "review_video_mu_1",
+        "label": "Make Up Video 1",
+        "info": "Youtube video ID for video",
+        "default": "ftROMDqvqXI"
       },
       {
         "type": "text",
-        "id": "review_text_3",
-        "label": "Review Title 3",
-        "info": "Title / heading for review video"
+        "id": "review_video_mu_2",
+        "label": "Make Up Video 2",
+        "info": "Youtube video ID for video"
       },
       {
         "type": "text",
-        "id": "review_video_4",
-        "label": "Review Video 4",
-        "info": "Youtube video ID for review video"
+        "id": "review_video_mu_3",
+        "label": "Make Up Video 3",
+        "info": "Youtube video ID for video"
       },
       {
         "type": "text",
-        "id": "review_text_4",
-        "label": "Review Title 4",
-        "info": "Title / heading for review video"
+        "id": "review_video_mu_4",
+        "label": "Make Up Video 4",
+        "info": "Youtube video ID for video"
+      },
+      {
+        "type": "text",
+        "id": "review_video_hc_1",
+        "label": "Hair Care Video 1",
+        "info": "Youtube video ID for video",
+        "default": "IjOvth3O2Vs"
+      },
+      {
+        "type": "text",
+        "id": "review_video_hc_2",
+        "label": "Hair Care Video 2",
+        "info": "Youtube video ID for video"
+      },
+      {
+        "type": "text",
+        "id": "review_video_hc_3",
+        "label": "Hair Care Video 3",
+        "info": "Youtube video ID for video"
+      },
+      {
+        "type": "text",
+        "id": "review_video_hc_4",
+        "label": "Hair Care Video 4",
+        "info": "Youtube video ID for video"
+      },
+      {
+        "type": "text",
+        "id": "review_video_bc_1",
+        "label": "Body Care Video 1",
+        "info": "Youtube video ID for video",
+        "default": "AMoD45MZvtI"
+      },
+      {
+        "type": "text",
+        "id": "review_video_bc_2",
+        "label": "Body Care Video 2",
+        "info": "Youtube video ID for video"
+      },
+      {
+        "type": "text",
+        "id": "review_video_bc_3",
+        "label": "Body Care Video 3",
+        "info": "Youtube video ID for video"
+      },
+      {
+        "type": "text",
+        "id": "review_video_bc_4",
+        "label": "Body Care Video 4",
+        "info": "Youtube video ID for video"
       }
     ]
   }
