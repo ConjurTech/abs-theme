@@ -1,3 +1,25 @@
-$(document).on('click', '.review-video-overlay', function(e) {
-  $('#review-video').attr('src', "//www.youtube.com/embed/" + $(this).data('id'));
+//-- Review videos navigation
+var video_index = 0;
+$(document).on('click', '.video-overlay', function(e) {
+  $('.video-overlay').not($(this)).removeClass('active');
+  $(this).addClass('active');
+
+  video_index = -1;
+  $('.video-nav.next').click();
 });
+
+$(document).on('click', '.video-nav', function(e) {
+  // rotate index
+  var videos = $('.video-overlay.active').data('manifest').split('|').filter(function(n){ return n != "" });
+  if ($(this).hasClass('next')) {
+    video_index++;
+    if (video_index >= videos.length) video_index = 0;
+  } else {
+    video_index--;
+    if (video_index < 0) video_index = videos.length-1;
+  }
+
+  $('#review-video').attr('src', "//www.youtube.com/embed/" + videos[video_index]);
+  //$('.video-description').html($(this).data('description'));
+});
+//-- End review video navigation
