@@ -12,41 +12,14 @@
       </div>
 
       <div class="col-sm-8">
-        <!-- {% assign sorted_collections = collections | sort: 'id' %}
-        {% for collection in sorted_collections %}
-        {% if collection.description != 'SANA-COLLECTION' %}
-        {% assign featured = collection.handle %}
-        {% assign collection_item_img_size = '480x480' %}
-
-        <div class="grid__item text-center">
-          {% capture collection_title %}{{ collections[featured].title | escape }}{% endcapture %}
-
-          <a href="{{ collections[featured].url }}" title="{{ 'collections.general.link_title' | t: title: collection_title }}" class="grid-link text-center">
-            <span class="grid-link__image grid-link__image--collection">
-              <span class="grid-link__image-centered">
-                {% if collections[featured].image %}
-                {{ collections[featured].image.src | img_url: collection_item_img_size | img_tag: collection_title }}
-                {% else %}
-                {{ collections[featured].products.first.featured_image | img_url: collection_item_img_size | img_tag: collection_title }}
-                {% endif %}
-              </span>
-            </span>
-          </a>
-
-        </div>
-
-        {% endif %}
-        {% endfor %} -->
-
         <div class="row">
           {% for collection in collections %}
-          {% assign collection_description = collection.description | strip_html %}
-          {% if collection_description == 'SANA-COLLECTION' %}
-          {% assign featured = collection.handle %}
+          {% assign collection_description = collection.description | strip_html | truncate: 15 %}
+          {% if collection_description == 'SANA-COLLECT...'%}
 
           <div class="col-sm-4">
             <a href="{{collection.url}}">
-              {{ collections[featured].image.src | img_url: '1024x1024' | img_tag: collections[featured].title }}
+              {{ collection.image.src | img_url: '1024x1024' | img_tag: collection.title }}
             </a>
           </div>
           {% endif %}
