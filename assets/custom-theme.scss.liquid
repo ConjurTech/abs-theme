@@ -1,10 +1,19 @@
 $green-color: #1caca3;
 $nav-links-top-offset: 20px;
 
-// Landing Page
-
 div.container.upper, div#page-content {
   border: none !important;
+}
+
+#landing-page-image {
+  background-image: url({{'landing-splash.jpg' | asset_url}});
+  height: 100vh;
+}
+
+
+// Navbar
+#nav-link-container {
+  margin-top: $nav-links-top-offset;
 }
 
 nav {
@@ -27,10 +36,6 @@ nav {
   }
 }
 
-#nav-link-container {
-  margin-top: $nav-links-top-offset;
-}
-
 .minicart-wrapper {
   margin-top: $nav-links-top-offset;
   .toggle-drawer.cart  {
@@ -39,52 +44,14 @@ nav {
   }
 }
 
-#landing-page-image {
-  background-image: url({{'landing-splash.jpg' | asset_url}});
-  height: 100vh;
-}
-
-// General
-
+// Header
 .main-header-wrapper-top {
   display: flex;
   text-align: center;
 }
-
 .main-header-wrapper-bottom {
   text-align: center;
 }
-
-.search-wrapper {
-  display: flex;
-  margin-right: 20px;
-}
-
-// #product-search {
-//   float: right;
-// }
-
-#product-search form input.icon {
-  float: left;
-  background: url({{ 'sprite.png' | asset_url }}) -9px -130px no-repeat !important;
-  width: 11px;
-  height: 11px;
-  border: none !important;
-  text-indent: -10000px;
-  padding: 0;
-  margin: 5px 5px 0px 5px;
-}
-
-input.search {
-  float: left;
-  width: 130px;
-  border: 1px solid pink;
-  padding: 5px;
-  margin-bottom: 0;
-  margin-left: 5px;
-  margin-top: -2px;
-}
-
 .main-header-label {
   width: 100%;
   line-height: 40px;
@@ -93,17 +60,40 @@ input.search {
   text-transform: uppercase;
   color: #d72756;
 }
-
 .main-header-inline {
   display: inline;
 }
-
 .main-header-subtitle {
   color: #d72756;
 }
-
 .main-header-subtitle::after {
   border: 1px solid black;
+}
+
+#product-search {
+  input.icon {
+    float: left;
+    background: url({{ 'sprite.png' | asset_url }}) -9px -130px no-repeat !important;
+    width: 11px;
+    height: 11px;
+    border: none !important;
+    text-indent: -10000px;
+    padding: 0;
+    margin: 5px 5px 0px 5px;
+  }
+  input.search {
+    float: left;
+    width: 130px;
+    border: 1px solid pink;
+    padding: 5px;
+    margin-bottom: 0;
+    margin-left: 5px;
+    margin-top: -2px;
+  }
+  .search-wrapper {
+    display: flex;
+    margin-right: 20px;
+  }
 }
 
 #page-content {
