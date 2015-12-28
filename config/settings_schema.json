@@ -5,168 +5,11 @@
     "settings": [
       {
         "type": "header",
-        "content": "Simple Theme"
+        "content": "ABS Theme"
       },
       {
         "type": "paragraph",
-        "content": "This theme is fully supported by Shopify. [Contact our support team](mailto:themesupport@shopify.com) if you have questions about this theme."
-      }
-    ]
-  },
-  {
-    "name": "Colors",
-    "settings": [
-      {
-        "type": "color",
-        "id": "background_color",
-        "label": "Background",
-        "default": "#ffffff"
-      },
-      {
-        "type": "color",
-        "id": "first_color",
-        "label": "Primary",
-        "default": "#333333",
-        "info": "Text, borders, and social icons"
-      },
-      {
-        "type": "color",
-        "id": "second_color",
-        "label": "Secondary",
-        "default": "#999999",
-        "info": "Subtext and link hover"
-      },
-      {
-        "type": "color",
-        "id": "heading_color",
-        "label": "Headings",
-        "default": "#999999"
-      },
-      {
-        "type": "color",
-        "id": "lighter_color",
-        "label": "Light borders",
-        "default": "#e8e8e8",
-        "info": "Social icon background"
-      },
-      {
-        "type": "color",
-        "id": "accent_color",
-        "label": "Accent",
-        "default": "#ff0000"
-      }
-    ]
-  },
-  {
-    "name": "Typography",
-    "settings": [
-      {
-        "type": "select",
-        "id": "header_font",
-        "label": "Headings",
-        "options": [
-          {
-            "value": "Times, TimesNewRoman, 'Times New Roman', Baskerville, Georgia, serif",
-            "label": "Times"
-          },
-          {
-            "value": "'Helvetica Neue', Arial, Helvetica, Geneva, sans-serif",
-            "label": "Helvetica\/Arial"
-          },
-          {
-            "value": "'Lora', serif",
-            "label": "Lora"
-          },
-          {
-            "value": "'PT Serif', serif",
-            "label": "PT Serif"
-          },
-          {
-            "value": "'Arimo', sans-serif",
-            "label": "Arimo"
-          },
-          {
-            "value": "'Cabin', sans-serif",
-            "label": "Cabin"
-          },
-          {
-            "value": "'Karla', sans-serif",
-            "label": "Karla"
-          },
-          {
-            "value": "'Source Sans Pro', sans-serif",
-            "label": "Source Sans Pro"
-          },
-          {
-            "value": "'Open Sans Condensed', sans-serif",
-            "label": "Open Sans Condensed"
-          },
-          {
-            "value": "'Roboto', sans-serif",
-            "label": "Roboto"
-          },
-          {
-            "value": "'Work Sans', sans-serif",
-            "label": "Work Sans"
-          }
-        ],
-        "default": "Times, TimesNewRoman, 'Times New Roman', Baskerville, Georgia, serif"
-      },
-      {
-        "type": "select",
-        "id": "body_font",
-        "label": "Body",
-        "options": [
-          {
-            "value": "'Helvetica Neue', Arial, Helvetica, Geneva, sans-serif",
-            "label": "Helvetica\/Arial"
-          },
-          {
-            "value": "Times, TimesNewRoman, 'Times New Roman', Baskerville, Georgia, serif",
-            "label": "Times"
-          },
-          {
-            "value": "'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace",
-            "label": "Courier"
-          },
-          {
-            "value": "'Lora', serif",
-            "label": "Lora"
-          },
-          {
-            "value": "'PT Serif', serif",
-            "label": "PT Serif"
-          },
-          {
-            "value": "'Arimo', sans-serif",
-            "label": "Arimo"
-          },
-          {
-            "value": "'Cabin', sans-serif",
-            "label": "Cabin"
-          },
-          {
-            "value": "'Karla', sans-serif",
-            "label": "Karla"
-          },
-          {
-            "value": "'Source Sans Pro', sans-serif",
-            "label": "Source Sans Pro"
-          },
-          {
-            "value": "'Open Sans Condensed', sans-serif",
-            "label": "Open Sans Condensed"
-          },
-          {
-            "value": "'Roboto', sans-serif",
-            "label": "Roboto"
-          },
-          {
-            "value": "'Work Sans', sans-serif",
-            "label": "Work Sans"
-          }
-        ],
-        "default": "'Helvetica Neue', Arial, Helvetica, Geneva, sans-serif"
+        "content": "This theme is not supported by Shopify. [Contact our support team](mailto:support@conjur.tech) if you have questions about this theme."
       }
     ]
   },
@@ -280,81 +123,6 @@
     ]
   },
   {
-    "name": "Social media",
-    "settings": [
-      {
-        "type": "header",
-        "content": "Sharing"
-      },
-      {
-        "type": "text",
-        "id": "twittercard_handle",
-        "label": "Twitter handle",
-        "info": "@shopify"
-      },
-      {
-        "type": "checkbox",
-        "id": "social_sharing_products",
-        "label": "Enable product sharing"
-      },
-      {
-        "type": "checkbox",
-        "id": "social_sharing_blog",
-        "label": "Enable blog post sharing"
-      },
-      {
-        "type": "checkbox",
-        "id": "social_sharing_count",
-        "label": "Show shared count",
-        "info": "Available for Facebook, Twitter, and Pinterest."
-      },
-      {
-        "type": "select",
-        "id": "social_sharing_style",
-        "label": "Button style",
-        "options": [
-          {
-            "value": "normal",
-            "label": "Normal"
-          },
-          {
-            "value": "is-large",
-            "label": "Large"
-          },
-          {
-            "value": "is-clean",
-            "label": "Clean"
-          }
-        ]
-      },
-      {
-        "type": "checkbox",
-        "id": "share_facebook",
-        "label": "Share on Facebook"
-      },
-      {
-        "type": "checkbox",
-        "id": "share_twitter",
-        "label": "Tweet on Twitter"
-      },
-      {
-        "type": "checkbox",
-        "id": "share_pinterest",
-        "label": "Pin on Pinterest"
-      },
-      {
-        "type": "checkbox",
-        "id": "share_fancy",
-        "label": "Add to Fancy"
-      },
-      {
-        "type": "checkbox",
-        "id": "share_google",
-        "label": "+1 on Google Plus"
-      }
-    ]
-  },
-  {
     "name": "Home page",
     "settings": [
       {
@@ -390,73 +158,6 @@
         "type": "collection",
         "id": "frontpage_collection",
         "label": "Product collection"
-      }
-    ]
-  },
-  {
-    "name": "Sidebar",
-    "settings": [
-      {
-        "type": "header",
-        "content": "Social media"
-      },
-      {
-        "type": "text",
-        "id": "facebook_url",
-        "label": "Facebook",
-        "info": "https:\/\/facebook.com\/shopify"
-      },
-      {
-        "type": "text",
-        "id": "twitter_url",
-        "label": "Twitter",
-        "info": "https:\/\/twitter.com\/shopify"
-      },
-      {
-        "type": "text",
-        "id": "instagram_url",
-        "label": "Instagram",
-        "info": "https:\/\/instagram.com\/shopify\/"
-      },
-      {
-        "type": "text",
-        "id": "pinterest_url",
-        "label": "Pinterest",
-        "info": "https:\/\/www.pinterest.com\/shopify\/"
-      },
-      {
-        "type": "text",
-        "id": "youtube_url",
-        "label": "YouTube",
-        "info": "https:\/\/www.youtube.com\/user\/shopify"
-      },
-      {
-        "type": "text",
-        "id": "vimeo_url",
-        "label": "Vimeo",
-        "info": "https:\/\/vimeo.com\/shopify"
-      },
-      {
-        "type": "text",
-        "id": "google_url",
-        "label": "Your Google Plus page URL",
-        "info": "https:\/\/plus.google.com\/+shopify"
-      },
-      {
-        "type": "text",
-        "id": "tumblr_url",
-        "label": "Your Tumblr page URL",
-        "info": "http:\/\/shopify.tumblr.com\/"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_rss",
-        "label": "Show RSS"
-      },
-      {
-        "type": "blog",
-        "id": "main_blog",
-        "label": "Blog"
       }
     ]
   },
@@ -539,6 +240,59 @@
             "label": "Page"
           }
         ]
+      }
+    ]
+  },
+  {
+    "name": "Review page",
+    "settings": [
+      {
+        "type": "text",
+        "id": "review_video_1",
+        "label": "Review Video 1",
+        "info": "Youtube video ID for review video"
+      },
+      {
+        "type": "text",
+        "id": "review_text_1",
+        "label": "Review Title 1",
+        "info": "Title / heading for review video"
+      },
+      {
+        "type": "text",
+        "id": "review_video_2",
+        "label": "Review Video 2",
+        "info": "Youtube video ID for review video"
+      },
+      {
+        "type": "text",
+        "id": "review_text_2",
+        "label": "Review Title 2",
+        "info": "Title / heading for review video"
+      },
+      {
+        "type": "text",
+        "id": "review_video_3",
+        "label": "Review Video 3",
+        "info": "Youtube video ID for review video"
+      },
+      {
+        "type": "text",
+        "id": "review_text_3",
+        "label": "Review Title 3",
+        "info": "Title / heading for review video"
+      },
+      {
+        "type": "text",
+        "id": "review_video_4",
+        "label": "Review Video 4",
+        "info": "Youtube video ID for review video"
+      },
+      {
+        "type": "text",
+        "id": "review_text_4",
+        "label": "Review Title 4",
+        "info": "Title / heading for review video"
       }
     ]
   }
