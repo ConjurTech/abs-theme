@@ -6,13 +6,7 @@
         <div class="brand-image-wrapper">
           <div><img src="{{ 'sana-brand.png' | asset_url }}" class="img-responsive"/></div>
           <span>
-            SANA () is a cosmetic brand which stands for "Safe and Natural".
-            It is a unique, high-function, high-quality cosmetic with originality
-            and natural ingredients, always keeping up with the beauty trend. SANA
-            aims to help girls feel beautiful and confident about themselves. It
-            is catered to mainly teens and young adults. Other than that, SANA also
-            releases a wide range of new products with quality ensured every season,
-            while keeping it affordable and easy to use.
+            {{page.content}}
           </span>
         </div>
       </div>
@@ -46,7 +40,8 @@
 
         <div class="row">
           {% for collection in collections %}
-          {% if collection.description == 'SANA-COLLECTION' %}
+          {% assign collection_description = collection.description | strip_html %}
+          {% if collection_description == 'SANA-COLLECTION' %}
           {% assign featured = collection.handle %}
 
           <div class="col-sm-4">
