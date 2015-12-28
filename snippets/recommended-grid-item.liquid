@@ -1,0 +1,15 @@
+<div class="recommended-grid-item">
+  {% assign on_sale = false %}
+  {% if product.compare_at_price > product.price %}{% assign on_sale = true %}{% endif %}
+  <div class="col-sm-12">
+    <a href="{{ product.url | within: collection }}" id="product-{{ forloop.index }}" {% unless template == "product" %}{% endunless %}>
+      {% if on_sale  %}<div class="sale">{{ 'collections.products.sale' | t }}</div>{% endif %}
+      {% unless product.available %}<div class="sold-out">{{ 'collections.products.sold_out' | t }}</div>{% endunless %}
+      <img src="{{ product.featured_image.src | product_img_url: '1024x1024' }}" alt="{{ product.featured_image.alt | escape }}" class="img-responsive" />
+      <div class="product-wrapper">
+        <div class="text-center product-title">{{ product.title }}</div>
+        <div class="text-center product-type">{{ product.type }}</div>
+      </div>
+    </a>
+  </div>
+</div>
