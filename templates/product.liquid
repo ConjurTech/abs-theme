@@ -1,6 +1,9 @@
-{% include 'breadcrumb' %}
 {% if product.compare_at_price > product.price %}{% assign on_sale = true %}{% endif %}
 <!--START PRODUCT-->
+<div class="container-fluid">
+	
+</div>
+
 <div itemscope itemtype="http://schema.org/Product" class="twelve columns alpha omega">
 	<meta itemprop="url" content="{{ shop.url }}{{ product.url }}" />
 	<meta itemprop="image" content="{{ product.featured_image.src | product_img_url: 'grande' }}" />

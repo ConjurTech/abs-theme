@@ -147,99 +147,41 @@
   <!--START HEADER-->
   <header>
     <!--START CONTAINER-->
-    <div class="container upper">
-      <!--START SIDEBAR-->
-
-      <div class="two columns desktop">
-        <a href="/">
-          {% if settings.use_logo %}
-          {{ 'logo.png' | asset_url | img_tag: shop.name }}
-          {% else %}
-          <span class="no-logo">{{ shop.name }}</span>
-          {% endif %}
-        </a>
-      </div>
-      <!--END SIDEBAR-->
-      <!--START TOP NAV-->
-      <div class="eleven columns desktop" id="nav-link-container">
-        <nav>
-          <!--{% for link in linklists[settings.secondary_menu].links %}
-          <a href="{{ link.url }}">{{ link.title }}</a>
-          {% endfor %}-->
-          <a href="/#">Home</a>
-          <a href="/pages/brands">Brands</a>
-          <a href="/pages/new">What's New</a>
-          <a href="/pages/bestsellers">Bestsellers</a>
-          <a href="/pages/events">Events and Promotions</a>
-          <a href="/pages/reviews">Reviews</a>
-          <a href="/pages/boutiques">Boutiques</a>
-          <a href="/pages/awards">Awards</a>
-
-          {% if shop.customer_accounts_enabled %}
-          {% if customer %}
-          <a href="/account">{{ 'customer.account.your_account' | t }}</a>
-          {{ 'customer.account.log_out' | t | customer_logout_link }}
-          {% else %}
-          {{ 'customer.account.log_in' | t | customer_login_link }}
-          {% if shop.customer_accounts_optional %}
-          {{ 'customer.account.create_account' | t | customer_register_link }}
-          {% endif %}
-          {% endif %}
-          {% endif %}
-        </nav>
-      </div>
-      <!--END TOP NAV-->
-      <!--START MINICART-->
-      <div class="one columns minicart-wrapper">
-        <div id="minicart">
-          <a href="{% if settings.cart_type == 'drawer' %}#{% else %}/cart{% endif %}" class="{% if settings.cart_type == 'drawer' %}toggle-drawer{% endif %} cart desktop {% if settings.light_cart_icon %}light{% endif %}"></a>
-          <!-- {% if settings.cart_type == 'drawer' %} <a href="/cart" class="checkout">{{ 'layout.general.header_checkout_text' | t }}</a> {% endif %} -->
+    <div class="container-fluid" id="desktop-nav">
+      <div class="row">
+        <div class="col-sm-offset-1 col-sm-1">
+          <a href="/">
+            {% if settings.use_logo %}
+            {{ 'logo.png' | asset_url | img_tag: shop.name }}
+            {% else %}
+            <span class="no-logo">{{ shop.name }}</span>
+            {% endif %}
+          </a>
+        </div>
+        <div class="col-sm-offset-1 col-sm-7" id="nav-link-container">
+          <nav>
+            <a href="/#">Home</a>
+            <a href="/pages/brands">Brands</a>
+            <a href="/pages/new">What's New</a>
+            <a href="/pages/bestsellers">Bestsellers</a>
+            <a href="/pages/events">Events and Promotions</a>
+            <a href="/pages/reviews">Reviews</a>
+            <a href="/pages/boutiques">Boutiques</a>
+            <a href="/pages/awards">Awards</a>
+          </nav>
+        </div>
+        <div class="col-sm-2 minicart-wrapper">
+          <a href="/cart"><img src="{{ 'shopping-bag.png' | asset_url }}" class="img-responsive"/></a>
         </div>
       </div>
-      <!--END MINI CART-->
     </div>
+
     <!--END CONTAINER-->
 
     <!--START CONTAINER-->
-
-    <!--<div class="container lower">
-    <div class="sixteen columns">
-    <div class="table logo-tagline">
-    <div class="table-cell">
-    <h1 id="logo">
-    <a href="/">
-    {% if settings.use_logo %}
-    {{ 'logo.png' | asset_url | img_tag: shop.name }}
-    {% else %}
-    <span class="no-logo">{{ shop.name }}</span>
-    {% endif %}
-  </a>
-</h1>
-</div>
-
-<div class="table-cell">
-<div id="tagline" class="desktop">
-<h3>
-{% if settings.show_tagline %}
-{% if settings.tagline != blank %}
-{{ settings.tagline }}
-{% elsif cart.announcements.size > 0 %}
-{{ cart.announcements.first }}
-{% else %}
-{{ 'layout.onboarding.tagline_text' | t }}
-{% endif %}
-{% endif %}
-</h3>
-</div>
-</div>
-</div>
-</div>
-</div>-->
-
-</header>
-<!--START HEADER-->
-<!--START CONTAINER-->
-<div class="">
+  </header>
+    <!--START HEADER-->
+  <!--START CONTAINER-->
   <!--START SIDEBAR-->
   <div id="sidebar" class="three columns" style="display: none;">
     <nav>
@@ -269,20 +211,23 @@
     </nav>
   </div>
   <script>
-  if ($(window).width() < 768) {
+  if ($(window).width() > 768) {
+    $("#desktop-nav").show();
+  } else {
     $("#sidebar").show();
   }
   $( window ).resize(function() {
     if ($(window).width() >= 768) {
+      $("#desktop-nav").show();
       $("#sidebar").hide();
     } else {
+      $("#desktop-nav").hide();
       $("#sidebar").show();
     }
   });
   </script>
   <!--END SIDEBAR-->
 
-  <div class="">
     <!--START MAIN-->
     <div id="main">
       <!-- main header  -->
@@ -411,7 +356,6 @@
     </footer>
     {% endif %}
     <!--END FOOTER-->
-  </div>
   <!-- END CONTAINER-->
 </body>
 
