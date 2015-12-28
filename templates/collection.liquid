@@ -1,11 +1,9 @@
-{% paginate collection.products by 48 %}
+{% paginate collection.products by 8 %}
 
 <!--START HERO-->
 <div class="container-fluid">
   <div class="row">
-  {% if collection.description.size > 0 %}
-  {% include 'collection-sort' %}
-  {% endif %}
+
   </div>
   <div class="row">
     <div class="col-sm-4">
@@ -24,6 +22,16 @@
     <div class="col-sm-8">
       <!--START PRODUCT GRID-->
       {% if collection.products.size > 0 %}
+        <div class="row upper-right-row">
+          <div class="col-sm-9">
+            {% if collection.description.size > 0 %}
+            {% include 'collection-sort' %}
+            {% endif %}
+          </div>
+          <div class="col-sm-3">
+            {% include 'paging' %}
+          </div>
+        </div>
         <div class="row">
         {% for product in collection.products %}
           {% include 'product-grid-item' %}
@@ -39,5 +47,4 @@
 <!--END HERO-->
 
 
-{% include 'paging' %}
 {% endpaginate %}

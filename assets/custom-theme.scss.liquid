@@ -1,4 +1,5 @@
 $green-color: #1caca3;
+$dark-pink-color: #d72756;
 $nav-links-top-offset: 20px;
 
 div.container.upper, div#page-content {
@@ -58,13 +59,13 @@ nav {
   font-size: 50px;
   font-weight: bold;
   text-transform: uppercase;
-  color: #d72756;
+  color: $dark-pink-color;
 }
 .main-header-inline {
   display: inline;
 }
 .main-header-subtitle {
-  color: #d72756;
+  color: $dark-pink-color;
 }
 .main-header-subtitle::after {
   border: 1px solid black;
@@ -128,6 +129,25 @@ nav {
     display: inline-block;
   }
 }
+
+// Paging
+#paging {
+  padding: 0 !important;
+  .current {
+    color: black !important;
+  }
+  a {
+    color: $dark-pink-color;
+    &:hover {
+      color: $dark-pink-color;
+      text-decoration: none;
+    }
+    &:visited {
+      color: $dark-pink-color;
+    }
+  }
+}
+
 // Products
 .product-grid-item a {
   color: black;
@@ -138,4 +158,16 @@ nav {
   &:visited {
     color: black;
   }
+}
+
+// Collection
+
+.upper-right-row {
+  margin-bottom: 0;
+}
+
+// Collection sort
+.sort-by-inline {
+  color: $dark-pink-color;
+  display: inline;
 }
