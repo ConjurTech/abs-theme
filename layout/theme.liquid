@@ -232,30 +232,21 @@
     <div id="main">
       <!-- main header  -->
       {% if template != 'index' %}
-      <!-- TODO: find a way how to style this thing -->
-      <div class="main-header-wrapper-top">
-        <div class="main-header-label main-header-inline">{{page.handle}}</div>
+      <div class="main-header-container">
+        <div class="title">{{page.handle}}</div>
+        <div class="subtitle">FOR NIPPON BEAUTY</div>
+        <div class="top-border"></div><div class="bottom-border"></div>
       </div>
-      <div class="main-header-wrapper-bottom">
-        <div class="main-header-subtitle">FOR NIPPON BEAUTY</div>
-      </div>
-      <div class="row">
-        <div class="col-sm-offset-10 col-sm-2">
-          <div class="main-header-inline" id="product-search">
-            <form action="/search" method="get" class="search-form" role="search">
-              <div class="search-wrapper">
-                <input type="hidden" name="type" value="product" />
-                {% if template == "search" and search.performed and search.terms != "" %}
-                <input type="text" name="q" id="search-field" class="search" value="{{ search.terms | escape }}" placeholder="{{ 'general.search.search_form_submit' | t }}"/>
-                {% else %}
-                <input class="search" placeholder="{{ 'general.search.search_form_submit' | t }}" name="q" type="text" id="search-field"  />
-                <input type="submit" id="search-submit" class="icon {% if settings.light_search_icon %}light{% endif %}" />
-              </div>
-              {% endif %}
-            </form>
-            <br class="clear">
-          </div>
-        </div>
+      <div id="product-search">
+        <form action="/search" method="get" class="search-form" role="search">
+            <input type="hidden" name="type" value="product" />
+            {% if template == "search" and search.performed and search.terms != "" %}
+            <input type="text" name="q" id="search-field" class="search" value="{{ search.terms | escape }}" placeholder="{{ 'general.search.search_form_submit' | t }}"/>
+            {% else %}
+            <input class="search" placeholder="{{ 'general.search.search_form_submit' | t }}" name="q" type="text" id="search-field"  />
+            <input type="submit" id="search-submit" class="icon {% if settings.light_search_icon %}light{% endif %}" />
+          {% endif %}
+        </form>
       </div>
       {% endif %}
       <div id="page-content">
