@@ -55,10 +55,20 @@ a {
       &:hover {
         color: $green;
       }
+      &:first-child  {
+        border-left: solid 2px $light-pink;
+      }
     }
-
-    a:first-child  {
-      border-left: solid 2px $light-pink;
+    &::before, &::after {
+      content: " ";
+      display: inline-block;
+      width: 35px;
+      height: 35px;
+      margin-bottom: -12px;
+      margin-left: 5px;
+      margin-right: 5px;
+      background: url({{ 'icon-flower.png' | asset_url }}) no-repeat center;
+      background-size: 35px 35px;
     }
   }
 }
