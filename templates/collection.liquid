@@ -1,5 +1,63 @@
 {% paginate collection.products by 8 %}
-<div id="collection-page">
+{% assign collection_handle = collection.handle %}
+{% if collection_handle == 'bestsellers'%}
+
+<div class="wysiwyg">
+  <div id="bestsellers-page">
+
+    {% assign filter_tag = "" %}
+    {% if current_tags.first == "skin-care" %}
+      {% assign filter_tag = "skin-care" %}
+    {% elsif current_tags.first == "make-up" %}
+      {% assign filter_tag = "make-up" %}
+    {% elsif current_tags.first == "hair-care" %}
+      {% assign filter_tag = "hair-care" %}
+    {% elsif current_tags.first == "body-care" %}
+      {% assign filter_tag = "body-care" %}
+    {% endif %}
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-3 left-wrapper">
+
+          <h1 class="category-inline-block"><span class="category-inline-block">CATEGORY</span></h1>
+          <div class="categories first-child {% if filter_tag == 'skin-care' or filter_tag == '' %}active{% endif %}"><a href="/collections/bestsellers/skin-care">Skin Care</a></div>
+          <div class="categories {% if filter_tag == 'make-up' %}active{% endif %}"><a href="/collections/bestsellers/make-up">Make Up</a></div>
+          <div class="categories {% if filter_tag == 'hair-care' %}active{% endif %}"><a href="/collections/bestsellers/hair-care">Hair Care</a></div>
+          <div class="categories {% if filter_tag == 'body-care' %}active{% endif %}"><a href="/collections/bestsellers/body-care">Body Care</a></div>
+        </div>
+        <div class="col-sm-9 right-wrapper">
+          <div class="row">
+            {% for product in collections['bestsellers'].products %}
+              {% if filter_tag == "" or product.tags contains filter_tag %}
+                {% assign on_sale = false %}
+                {% if product.compare_at_price > product.price %}{% assign on_sale = true %}{% endif %}
+                <div class="col-sm-4 bestseller-item-row-wrapper">
+                  <div class="bestseller-item-wrapper">
+                    <a href="{{ product.url | within: collection }}" id="product-{{ forloop.index }}">
+                      {% if on_sale  %}<div class="sale">{{ 'collections.products.sale' | t }}</div>{% endif %}
+                      {% unless product.available %}<div class="sold-out">{{ 'collections.products.sold_out' | t }}</div>{% endunless %}
+                      <img src="{{ product.featured_image.src | product_img_url: '1024x1024' }}" alt="{{ product.featured_image.alt | escape }}" class="img-responsive" />
+                      <div class="product-wrapper">
+                        <div class="text-center product-title product-title-inline"><span class="product-title-inline">{{ product.title }}</span></div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              {% endif %}
+
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{% else %}
+
+<div id="default-collection-page">
   <!--START HERO-->
   <div class="container-fluid">
     <div class="row">
@@ -65,6 +123,10 @@
   </div>
   <!--END HERO-->
 </div>
+
+{% endif %}
+
+
 
 
 

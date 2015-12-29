@@ -280,7 +280,7 @@ footer {
 }
 
 // Collection
-#collection-page {
+#default-collection-page {
   .upper-right-row {
     margin-bottom: 0;
   }
@@ -334,6 +334,76 @@ footer {
       padding-bottom: 10px;
       border-bottom: 2px solid $dark-green;
     }
+  }
+
+
+}
+
+// Bestsellers page
+#bestsellers-page {
+  min-height: 100vh;
+  a {
+    color: black;
+    &:hover {
+      color: black;
+      text-decoration: none;
+    }
+    &:visited {
+      color: black;
+    }
+  }
+  .left-wrapper {
+    padding-right: 0px;
+    h1 {
+      font-weight: normal;
+      padding-bottom: 5px;
+      border-bottom: 1px solid black;
+    }
+    .active {
+      background-color: $light-pink;
+    }
+    .category-inline-block {
+      display: inline-block;
+    }
+    .categories {
+      font-size: 24px;
+      padding: 10px 20px;
+    }
+    .categories.first-child {
+      margin-top: 40px
+    }
+  }
+
+  .right-wrapper {
+    background-color: $light-pink;
+    // Recommended
+    .bestseller-item-row-wrapper {
+      margin: 0px;
+      padding: 0px;
+      .bestseller-item-wrapper {
+        margin: 30px;
+        background-color: white;
+
+        a {
+          .product-wrapper {
+            text-align: center;
+            margin: 0px;
+            .product-title {
+              font-size: 22px;
+              padding-bottom: 10px;
+              border-bottom: 1px solid $light-pink;
+            }
+
+            .product-title-inline {
+              display: inline-block;
+            }
+          }
+
+        }
+      }
+    }
+
+
   }
 
 
