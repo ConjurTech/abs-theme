@@ -6,7 +6,14 @@ $dark-pink: #d72756;
 $nav-links-top-offset: 20px;
 
 body {
+  font-family: "Arabic Typesetting", "Georgia", "Times New Roman", serif;
+  font-size: 22px;
   background-color: #fae6e7 !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Arabic Typesetting", "Georgia", "Times New Roman", serif;
+    font-weight: bold;
 }
 
 div.container.upper, div#page-content {
@@ -24,7 +31,9 @@ div.container.upper, div#page-content {
   nav {
     a {
       color: $green;
-      font-size: 16px;
+      font-weight: 300;
+      font-size: 26px;
+      line-height: 26px;
       margin: 0px !important;
       padding: 0 10px;
       border-right: solid 2px $light-pink;
@@ -67,9 +76,9 @@ div.container.upper, div#page-content {
     display: block;
     position: relative;
     z-index: 2;
-    font-size: 11px;
+    font-size: 15px;
     width: 140px;
-    height: 20px;
+    height: 18px;
     line-height: 20px;
     margin: auto;
     margin-bottom: -14px;
@@ -134,7 +143,7 @@ footer {
   border-right-width: 2px;
   h2 {
     margin-top: 10px;
-    font-size: 10px;
+    font-size: 14px;
     font-weight: bold;
     text-transform: uppercase;
   }
@@ -142,12 +151,15 @@ footer {
     border: 1px solid $blue;
     border-radius: 0;
     display: inline-block;
+    font-size: 16px;
   }
   input[type="submit"] {
     border: 1px solid $blue!important;
     background: $blue!important;
     margin-left: -4px;
-    height: 27px;
+    height: 30px;
+    font-size: 16px;
+    padding: 8px 10px;
     &:hover {
       background: $blue!important;
     }
@@ -156,7 +168,7 @@ footer {
     margin-bottom: 0!important;
   }
   .row {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
   }
   .social-icons {
     text-align: right;
@@ -213,13 +225,17 @@ footer {
     text-align: center;
     font-weight: bold;
   }
+  .video-thumbnails {
+    border-bottom: 1px solid $light-pink;
+    padding-bottom: 20px;
+    margin-bottom: 0;
+  }
   .video-title {
     display: block;
     text-align: center;
-    font-size: 22px;
-    margin-top: 40px;
+    font-size: 34px;
+    margin-top: 20px;
     margin-bottom: 20px;
-    padding-bottom: 15px;
     border-bottom: 1px solid $light-pink;
   }
   .video-overlay {
@@ -269,7 +285,8 @@ footer {
   }
 
   .product-wrapper {
-    padding: 20px 0;
+    font-weight: bold;
+    padding: 5px 0 25px;
   }
   .product-title, .product-type {
     font-size: 22px;
@@ -293,42 +310,83 @@ footer {
 // Product item
 #product-item-page {
   .left-column-wrapper {
-    background-color: #d8dedb;
-    margin: 0px 40px;
-    padding: 20px;
+    .row {
+      margin-bottom: 0;
+    }
+    .images-wrapper {
+      text-align: center;
+      background-color: #d8dedb;
+      padding: 20px;
+    }
+    #gallery {
+      a {
+        margin: 0;
+        width: 100%;
+      }
+      > .row {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+      .gallery-image {
+        padding: 3px;
+      }
+    }
   }
 
   .center-column-wrapper {
-    h1:first-child {
-      padding-bottom: 10px;
-      border-bottom: 2px solid $dark-green;
+    h1 {
+      margin-bottom: 5px;
+      margin-top: 5px;
+      padding-top: 0!important;
+      &:first-child {
+        margin-top: 20px;
+        border-bottom: 2px solid $dark-green;
+      }
+    }
+    .row {
+      font-family: 'PT Sans', 'Helvetica Neue', sans-serif;
+      font-size: 14px;
     }
     .subtitle {
       color: grey;
     }
-    .details, .rating, .write-a-review {
+    .details, .rating {
       font-size: 20px;
     }
     .description {
       border-bottom: 1px solid black;
     }
     #add {
-      color: grey;
+      font-family: 'PT Sans', 'Helvetica Neue', sans-serif;
       background-color: inherit !important;
       border-color: $dark-green !important;
       padding: 15px 10px;
+      margin: 0;
+      margin-top: -20px;
       &:hover {
         color: black;
+      }
+      @media (max-width: 768px) {
+        float: right;
       }
     }
   }
 
   .right-column-wrapper {
+    text-align: center;
     h1:first-child {
-      padding-bottom: 10px;
+      font-size: 22px;
+      font-weight: bold;
+      padding-top: 15px;;
       border-bottom: 2px solid $dark-green;
     }
   }
+}
 
-
+// Review form
+.spr-form-title {
+  font-size: 22px;
+}
+.spr-form-input {
+  font-size: 22px!important;
 }
