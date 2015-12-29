@@ -1,0 +1,92 @@
+<div id="contact-us-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-7 left-wrapper">
+        <div class="inner-wrapper">
+          <div>
+            Thank you for visiting ABLE website.
+            If you require further assistance or more information about us,
+            then please don’t hesitate to contact us. Kindly fill in the contact
+            form below and our friendly staffs will get back to you as soon as possible.
+          </div>
+          <br/>
+          <div>
+            We can be reached on Monday - Friday, 9am - 6pm SGT (except Public Holiday)
+          </div>
+          <br/>
+
+          <form id="submit-form">
+            <div class="row">
+              <div class="col-sm-3">Subject*:</div>
+              <div class="col-sm-8"><input id="input-subject" type="text" required></input></div>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-3">Name*:</div>
+              <div class="col-sm-8"><input id="input-name" type="text" required></input></div>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-3">Email*:</div>
+              <div class="col-sm-8"><input id="input-email" type="email" required></input></div>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-3">Contact No.*:</div>
+              <div class="col-sm-8"><input id="input-contact" type="tel" required></input></div>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-3">Message*:</div>
+              <div class="col-sm-8"><textarea id="input-message" required></textarea></div>
+            </div>
+            <br/>
+            <div class="row">
+              <div class="col-sm-2"><button type="submit" class="input-submit">SUBMIT</button></div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <script>
+        $(function() {
+          $('#submit-form').submit(function(e) {
+            e.preventDefault();
+            var subject = $('#input-subject').val();
+            var name = $('#input-name').val();
+            var email = $('#input-email').val();
+            var contact = $('#input-contact').val();
+            var message = $('#input-message').val();
+
+            var constructEmail = "mailto:"+email+"?subject="+subject+"&body="+message+"%0A%0ARegards,%0A"+name+"%0A"+contact;
+            console.log(constructEmail);
+            window.location.href = constructEmail;
+
+          });
+        });
+      </script>
+      <div class="col-sm-5">
+        <div class="inner-wrapper">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="our-location-wrapper">
+                <img src="{{ 'our-location.png' | asset_url }}" class="img-responsive"/>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-12">
+                <div><b>Able international pte ltd</b></div>
+                <div>8 Burn Road, #01-09, TRIVEX, Singapore (369977)</div>
+                <br/>
+                <div>Email: sales@able.com.sg</div>
+                <div>Contact: +65 62355766</div>
+                <div>Business Hours: Monday - Friday (9am - 6pm)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
