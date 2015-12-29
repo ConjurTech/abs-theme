@@ -602,7 +602,6 @@ $heading-color: #333333;
   /* Tablet Portrait size to standard 960 (devices and browsers) */
   @media only screen and (min-width: 768px) and (max-width: 959px) {
     div#drawer form div.description div.info {width: 260px !important;}
-    section#cart form div.row div.description div.info {width: 120px !important;}
     header nav a {margin-right: 5px !important;}
     header div#product-search form input.search {width: 90px !important;}
     div#sidebar nav li {height: auto !important; min-height: 40px;}
@@ -663,7 +662,6 @@ $heading-color: #333333;
     div#minicart a.cart{border-right: none !important;padding-right: 0 !important;}
     div#minicart a.cart.mobile{display:inline-block !important;}
     div#minicart a.checkout{display: none;}
-    section#cart form div.row div.description div.info {width: 280px !important;}
     div#product-search{float: left; padding-bottom: 10px;}
     h1#logo {text-align: center; margin-bottom: 0 !important;}
     h1#logo img {max-width: 400px;}
@@ -677,8 +675,8 @@ $heading-color: #333333;
     section.product-grid div.columns a img {width: auto !important;}
     section#gallery a {width: 97px !important; margin-top: 10px !important;}
     div#product-options select {width: 95% !important;}
-    section#cart div.total h2{text-align: left !important; padding-top: 20px; border-top: 1px solid {{ settings.lighter_color }}; margin-top: 20px;}
-    section#cart div.actions{text-align: left !important;}
+    //section#cart div.total h2{text-align: left !important; padding-top: 20px; border-top: 1px solid {{ settings.lighter_color }}; margin-top: 20px;}
+    //section#cart div.actions{text-align: left !important;}
     section#cart textarea#note {margin-top: 30px;}
     article.post.first {padding-top: 20px !important;}
     article.post div.date {font-size: 13px !important; text-align: left !important; padding: 20px 0;}
@@ -702,7 +700,6 @@ $heading-color: #333333;
     header div.container.upper div.three.columns { width: 160px !important; padding-bottom: 0! important }
     header div.container.upper div.five.columns { width: 120px !important; padding-left: 0 !important; padding-bottom: 0 !important; float: right; }
     header div.container.lower {padding-bottom: 0 !important;}
-    section#cart form div.row div.description div.info {width: 160px !important;}
     div#product-search{float: left; padding-bottom: 10px;}
     div#minicart{width: auto !important; padding-bottom: 10px; text-align: right !important;}
     div#minicart a.cart{border-right: none !important;padding-right: 0 !important;}
@@ -720,8 +717,8 @@ $heading-color: #333333;
     section.product-grid div.columns a img {width: auto !important;}
     section#gallery a {width: 67px !important; margin-top: 10px !important;}
     div#product-options select {width: 95% !important;}
-    section#cart div.total h2{text-align: left !important; padding-top: 20px; border-top: 1px solid {{ settings.lighter_color }}; margin-top: 20px;}
-    section#cart div.actions{text-align: left !important;}
+    //section#cart div.total h2{text-align: left !important; padding-top: 20px; border-top: 1px solid {{ settings.lighter_color }}; margin-top: 20px;}
+    //section#cart div.actions{text-align: left !important;}
     section#cart textarea#note {margin-top: 30px;}
     section#cart input[name="goto_pp"] { float: left; }
     article.post.first {padding-top: 30px !important;}
@@ -740,7 +737,6 @@ $heading-color: #333333;
   /* Additional - Large Screens beyond 1280px */
   @media only screen and (min-width: 1281px) {
     div#drawer form div.description div.info {width: 540px !important;}
-    section#cart form div.row div.description div.info {width: 300px !important;}
     header div.container.lower div#tagline h3 {padding-top: 10px;}
     // header div.container.upper nav a {margin-right: 30px !important;}
     section.product-grid div.columns {min-height: 290px !important;}
@@ -2007,14 +2003,7 @@ $heading-color: #333333;
     border-bottom: 1px solid {{ settings.lighter_color }};
   }
   section#cart form div.row div.description img {
-    float: left;
-    width: 100px;
-    margin-bottom: 20px;
-  }
-  section#cart form div.row div.description div.info {
-    float: left;
-    padding: 0 0 0 40px;
-    width: 190px;
+    width: 100%;
   }
   section#cart form div.row div.description div.info h3 {
     line-height: 18px;
@@ -2065,62 +2054,9 @@ $heading-color: #333333;
   section#cart .mobile .cart-item__original-price {
     display: block;
   }
-  section#cart form div.row div.price {
-    font-size: 16px;
-    {% if settings.header_font contains "PT Serif" %}
-    font-family: 'PT Serif', serif;
-    font-style: normal;
-    font-weight: normal;
-    {% elsif settings.header_font contains "Source Sans Pro" %}
-    font-family: 'Source Sans Pro', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    {% elsif settings.header_font contains "Open Sans Condensed" %}
-    font-family: 'Open Sans Condensed', sans-serif;
-    font-style: normal;
-    font-weight: 300;
-    {% elsif settings.header_font contains "Helvetica" %}
-    font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    {% else settings.header_font contains "Times" %}
-    font-family: Times, TimesNewRoman, "Times New Roman", Baskerville, Georgia, serif;
-    font-style: italic;
-    font-weight: normal;
-    {% endif %}
-    padding-top: 5px;
-  }
-  section#cart form div.row div.quantity {
-    text-align: center;
-  }
   section#cart form div.row div.quantity input {
     width: 30px !important;
     text-align: center;
-  }
-  section#cart form div.row div.total {
-    font-size: 16px;
-    {% if settings.header_font contains "PT Serif" %}
-    font-family: 'PT Serif', serif;
-    font-style: normal;
-    font-weight: normal;
-    {% elsif settings.header_font contains "Source Sans Pro" %}
-    font-family: 'Source Sans Pro', sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    {% elsif settings.header_font contains "Open Sans Condensed" %}
-    font-family: 'Open Sans Condensed', sans-serif;
-    font-style: normal;
-    font-weight: 300;
-    {% elsif settings.header_font contains "Helvetica" %}
-    font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    {% else settings.header_font contains "Times" %}
-    font-family: Times, TimesNewRoman, "Times New Roman", Baskerville, Georgia, serif;
-    font-style: italic;
-    font-weight: normal;
-    {% endif %}
-    padding-top: 5px;
   }
   section#cart form div.row div.total>span {
     display: block;
@@ -2130,7 +2066,7 @@ $heading-color: #333333;
     text-align: right;
   }
   section#cart form div.row div.remove a {
-    color: {{ settings.second_color }};
+    color: #333;
     border-bottom: none;
   }
   section#cart form div.row div.remove a:hover {
@@ -2143,24 +2079,9 @@ $heading-color: #333333;
     text-align: right;
     font-size: 22px;
   }
-  section#cart div.actions {
-    text-align: right;
-  }
   section#cart textarea#note {
     width: 95%;
     margin-bottom: 40px;
-  }
-  section#cart div.actions input#checkout {
-    padding: 10px 20px !important;
-  }
-  section#cart div.actions input#update {
-    padding: 10px 20px !important;
-    color: {{ settings.second_color }};
-    border-color: {{ settings.second_color }} !important;
-    margin-right: 10px;
-  }
-  section#cart div.actions input#update:hover {
-    background-color: {{ settings.background_color }} !important;
   }
   section#cart .google-wallet-button-holder {
     display: inline-block;

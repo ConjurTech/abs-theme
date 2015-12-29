@@ -78,7 +78,7 @@
   },
   "layout": {
     "general": {
-      "header_cart_title": "My Cart",
+      "header_cart_title": "My Bag",
       "header_checkout_text": "Check Out",
       "menu_title": "Menu"
     },
@@ -100,11 +100,11 @@
   "cart": {
     "general": {
       "title": "My Cart",
-      "continue_link": "« Continue Shopping",
+      "continue_link": "Continue Shopping",
       "cart_total_html": "Total {{ price }}",
       "remove": "Remove",
-      "update": "Update",
-      "check_out": "Check Out",
+      "update": "Save",
+      "check_out": "Secure Checkout",
       "cart_note_placeholder": "Add a note to your order...",
       "additional_savings": "Additional savings",
       "savings_html": "You're saving {{ price }}",
@@ -115,7 +115,7 @@
     "labels": {
       "description": "Description",
       "price": "Price",
-      "quantity": "Qty",
+      "quantity": "Quantity",
       "total": "Total"
     }
   },

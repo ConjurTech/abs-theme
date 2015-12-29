@@ -228,7 +228,20 @@
       <!-- main header  -->
       {% if template != 'index' %}
       <div class="main-header-container">
-        <div class="title">{{page.handle}}</div>
+        <div class="title">
+          {% if template contains "page" %}
+            {{ page.title }}
+          {% endif %}
+          {% if template contains "product" %}
+            {{ product.collections.first.title }}
+          {% endif %}
+          {% if template contains "collection" %}
+            {{ collection.title }}
+          {% endif %}
+          {% if template contains "cart" %}
+            {{ 'cart.general.title' | t }}
+          {% endif %}
+        </div>
         <div class="subtitle">FOR NIPPON BEAUTY</div>
         <div class="top-border"></div><div class="bottom-border"></div>
       </div>
