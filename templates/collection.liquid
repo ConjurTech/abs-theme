@@ -65,35 +65,43 @@
     </div>
     <div class="row">
       <div class="col-sm-4">
-        <div class="brand-image-wrapper">
-          {% assign collection_type = collection.description | strip_html | truncate: 15 %}
-          {% if collection_type == 'SANA-COLLECT...'%}
-            <div><img src="{{ 'sana-brand.png' | asset_url }}" class="img-responsive" width="2000"/></div>
-          {% endif %}
-          {% if collection_type == 'NOVV-COLLECT...'%}
-            <div><img src="{{ 'nov-collection.jpg' | asset_url }}" class="img-responsive"/ width="2000"></div>
-          {% endif %}
-          {% if collection_type == 'LOVE-COLLECT...'%}
-            <div><img src="{{ 'loveliner-collection.jpg' | asset_url }}" class="img-responsive"/ width="2000"></div>
-          {% endif %}
-          {% if collection_type == 'RIBB-COLLECT...'%}
-            <div><img src="{{ 'ribbon-collection.jpg' | asset_url }}" class="img-responsive"/ width="2000"></div>
-          {% endif %}
-          {% if collection_type == 'TIME-COLLECT...'%}
-            <div><img src="{{ 'time-secret-collection.jpg' | asset_url }}" class="img-responsive"/ width="2000"></div>
-          {% endif %}
-          {% if collection_type == 'GABA-COLLECT...'%}
-            <div><img src="{{ 'gabaiyoka-collection.png' | asset_url }}" class="img-responsive"/ width="2000"></div>
-          {% endif %}
-          {% if collection_type == 'VESS-COLLECT...'%}
-            <div><img src="{{ 'vess-collection.jpg' | asset_url }}" class="img-responsive"/ width="2000"></div>
-          {% endif %}
+        {% assign is_brand_collection = false %}
+        {% assign image_src = "" %}
+        {% assign collection_type = collection.description | strip_html | truncate: 15 %}
+        {% if collection_type == 'SANA-COLLECT...'%}
+          {% assign is_brand_collection = true %}
+          {% assign image_src = "sana-brand.png" %}
+        {% elsif collection_type == 'NOVV-COLLECT...'%}
+          {% assign is_brand_collection = true %}
+          {% assign image_src = "nov-collection.jpg" %}
+        {% elsif collection_type == 'LOVE-COLLECT...'%}
+          {% assign is_brand_collection = true %}
+          {% assign image_src = "loveliner-collection.jpg" %}
+        {% elsif collection_type == 'RIBB-COLLECT...'%}
+          {% assign is_brand_collection = true %}
+          {% assign image_src = "ribbon-collection.jpg" %}
+        {% elsif collection_type == 'TIME-COLLECT...'%}
+          {% assign is_brand_collection = true %}
+          {% assign image_src = "time-secret-collection.jpg" %}
+        {% elsif collection_type == 'GABA-COLLECT...'%}
+          {% assign is_brand_collection = true %}
+          {% assign image_src = "gabaiyoka-collection.png" %}
+        {% elsif collection_type == 'VESS-COLLECT...'%}
+          {% assign is_brand_collection = true %}
+          {% assign image_src = "vess-collection.jpg" %}
+        {% endif %}
+        {% if is_brand_collection == true %}
+          <div class="brand-image-wrapper">
+            {% if is_brand_collection == true %}
+              <div><img src="{{ image_src | asset_url }}" class="img-responsive" width="2000"/></div>
+            {% endif %}
 
-          <div class="description">
-            {% assign collection_description = collection.description | strip_html | remove_first: 'SANA-COLLECTION:' %}
-            {{ collection_description }}
+            <div class="description">
+              {% assign collection_description = collection.description | strip_html | remove_first: 'SANA-COLLECTION:' %}
+              {{ collection_description }}
+            </div>
           </div>
-        </div>
+        {% endif %}
       </div>
 
       <div class="col-sm-8">
