@@ -166,7 +166,7 @@
           </nav>
         </div>
         <div class="col-sm-2 minicart-wrapper">
-          <a href="/cart"><img src="{{ 'shopping-bag.png' | asset_url }}" class="img-responsive"/></a>
+          <a href="/cart" class="cart-target"><img src="{{ 'shopping-bag.png' | asset_url }}" class="img-responsive"/></a>
         </div>
       </div>
     </div>
@@ -190,7 +190,7 @@
         <li><a href="/pages/reviews">Reviews</a></li>
         <li><a href="/pages/boutiques">Boutiques</a></li>
         <li><a href="/pages/awards">Awards</a></li>
-        <li><a href="/cart" class="cart mobile {% if settings.light_cart_icon %}light{% endif %} cart-target">{{ 'layout.general.header_cart_title' | t }}<span id="cart-target-mobile" class="count cart-target"> ({{ cart.item_count }})</span></a></li>
+        <li><a href="/cart" class="cart mobile {% if settings.light_cart_icon %}light{% endif %}">{{ 'layout.general.header_cart_title' | t }}<span class="count cart-target"> ({{ cart.item_count }})</span></a></li>
         {% if shop.customer_accounts_enabled %}
         {% if customer %}
         <li class="mobile"><a href="/account">{{ 'customer.account.your_account' | t }}</a></li>
