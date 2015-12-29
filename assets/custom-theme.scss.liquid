@@ -27,12 +27,12 @@ a {
   }
 }
 
-div.container.upper, div#page-content {
-  border: none !important;
+#page-content {
+  overflow: visible !important;
 }
 
 #landing-page-image {
-  background-image: url({{'landing-splash.jpg' | asset_url}});
+  background-image: url({{'home-splash.png' | asset_url}});
   height: 100vh;
 }
 
@@ -66,11 +66,9 @@ div.container.upper, div#page-content {
 .minicart-wrapper {
   margin-top: $nav-links-top-offset;
   height: 31px;
-  display: flex;
-  align-items: center;
-  .toggle-drawer.cart  {
-    background-repeat: no-repeat;
-    background-image: url({{'shopping-bag.png' | asset_url}});
+  .cart-icon {
+    margin-top: 3px;
+    width: 20px;
   }
 }
 
@@ -125,7 +123,6 @@ div.container.upper, div#page-content {
   }
 }
 
-
 #product-search {
   text-align: right;
   form {
@@ -150,10 +147,6 @@ div.container.upper, div#page-content {
     padding: 5px;
     margin: 0;
   }
-}
-
-#page-content {
-  overflow: visible !important;
 }
 
 // Footer
@@ -383,6 +376,9 @@ footer {
     }
     .details, .rating {
       font-size: 20px;
+    }
+    .details {
+      margin: 10px 0;
     }
     .description {
       border-bottom: 1px solid black;
@@ -618,6 +614,70 @@ footer {
         text-decoration: none;
       }
     }
+  }
+}
+
+// Blogs page
+.blog-category-title {
+  text-decoration: underline;
+  text-transform: uppercase;
+}
+.blog-category-list {
+  li {
+    margin-bottom: 5px;
+  }
+  a, span {
+    font-weight: bold;
+    text-transform: uppercase;
+    display: inline-block;
+    width: 100%;
+    color: #333;
+  }
+  a:hover, a:focus {
+    color: $dark-pink;
+    text-decoration: none;
+  }
+  .active {
+    color: $dark-pink;
+    border-right: 4px solid $dark-pink;
+  }
+}
+.post-preview {
+  text-align: center;
+  position: relative;
+  a, a:hover, a:focus {
+    text-decoration: none;
+    color: #333;
+  }
+  .feature {
+    height: 220px;
+    &.text {
+      border: 1px solid grey;
+    }
+    &.image {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+  .feature-overlay {
+    top: 0;
+    position: absolute;
+    width: 100%;
+    height: 220px;
+  }
+  &:hover {
+    .feature-overlay {
+      background: rgba(0, 0, 0, 0.2);
+    }
+  }
+  .title {
+    display: inline-block;
+    text-transform: uppercase;
+    border-bottom: 1px solid $light-pink;
+    font-size: 24px;
+    line-height: 14px;
+    margin-top: 3px;
   }
 }
 
