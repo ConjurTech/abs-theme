@@ -98,17 +98,15 @@
 
       <div class="col-sm-8">
         <!--START PRODUCT GRID-->
-        {% if collection.products.size > 0 %}
-          <div class="row upper-right-row">
-            <div class="col-sm-9">
-              {% if collection.description.size > 0 %}
-              {% include 'collection-sort' %}
-              {% endif %}
-            </div>
-            <div class="col-sm-3">
-              {% include 'paging' %}
-            </div>
+        <div class="row upper-row">
+          <div class="col-sm-9">
+            {% include 'collection-sort' %}
           </div>
+          <div class="col-sm-3">
+            {% include 'paging' %}
+          </div>
+        </div>
+        {% if collection.products.size > 0 %}
           <div class="row">
           {% for product in collection.products %}
             {% include 'product-grid-item' %}
