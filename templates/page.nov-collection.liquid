@@ -1,0 +1,33 @@
+<div class="wysiwyg">
+  <div class="container-fluid">
+    <div class="row">
+
+      <div class="col-sm-4">
+        <div class="brand-image-wrapper">
+          <div><img src="{{ 'nov-brand.png' | asset_url }}" class="img-responsive"/></div>
+          <span>
+            {{page.content}}
+          </span>
+        </div>
+      </div>
+
+      <div class="col-sm-8">
+        <div class="row">
+          {% for collection in collections %}
+          {% assign collection_description = collection.description | strip_html | truncate: 15 %}
+          {% if collection_description == 'NOVV-COLLECT...'%}
+
+          <div class="col-sm-4">
+            <a href="{{collection.url}}">
+              {{ collection.image.src | img_url: '1024x1024' | img_tag: collection.title }}
+            </a>
+          </div>
+          {% endif %}
+          {% endfor %}
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>

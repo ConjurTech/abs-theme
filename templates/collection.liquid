@@ -1,53 +1,71 @@
 {% paginate collection.products by 8 %}
+<div id="collection-page">
+  <!--START HERO-->
+  <div class="container-fluid">
+    <div class="row">
 
-<!--START HERO-->
-<div class="container-fluid">
-  <div class="row">
+    </div>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="brand-image-wrapper">
+          {% assign collection_type = collection.description | strip_html | truncate: 15 %}
+          {% if collection_type == 'SANA-COLLECT...'%}
+            <div><img src="{{ 'sana-brand.png' | asset_url }}" class="img-responsive" width="2000"/></div>
+          {% endif %}
+          {% if collection_type == 'NOVV-COLLECT...'%}
+            <div><img src="{{ 'nov-collection.jpg' | asset_url }}" class="img-responsive"/ width="2000"></div>
+          {% endif %}
+          {% if collection_type == 'LOVE-COLLECT...'%}
+            <div><img src="{{ 'loveliner-collection.jpg' | asset_url }}" class="img-responsive"/ width="2000"></div>
+          {% endif %}
+          {% if collection_type == 'RIBB-COLLECT...'%}
+            <div><img src="{{ 'ribbon-collection.jpg' | asset_url }}" class="img-responsive"/ width="2000"></div>
+          {% endif %}
+          {% if collection_type == 'TIME-COLLECT...'%}
+            <div><img src="{{ 'time-secret-collection.jpg' | asset_url }}" class="img-responsive"/ width="2000"></div>
+          {% endif %}
+          {% if collection_type == 'GABA-COLLECT...'%}
+            <div><img src="{{ 'gabaiyoka-collection.png' | asset_url }}" class="img-responsive"/ width="2000"></div>
+          {% endif %}
+          {% if collection_type == 'VESS-COLLECT...'%}
+            <div><img src="{{ 'vess-collection.jpg' | asset_url }}" class="img-responsive"/ width="2000"></div>
+          {% endif %}
 
-  </div>
-  <div class="row">
-    <div class="col-sm-4">
-      <div class="brand-image-wrapper">
-        {% assign collection_type = collection.description | strip_html | truncate: 15 %}
-        {% if collection_type == 'SANA-COLLECT...'%}
-          <div><img src="{{ 'sana-brand.png' | asset_url }}" class="img-responsive"/></div>
+          <div class="description">
+            {% assign collection_description = collection.description | strip_html | remove_first: 'SANA-COLLECTION:' %}
+            {{ collection_description }}
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-8">
+        <!--START PRODUCT GRID-->
+        {% if collection.products.size > 0 %}
+          <div class="row upper-right-row">
+            <div class="col-sm-9">
+              {% if collection.description.size > 0 %}
+              {% include 'collection-sort' %}
+              {% endif %}
+            </div>
+            <div class="col-sm-3">
+              {% include 'paging' %}
+            </div>
+          </div>
+          <div class="row">
+          {% for product in collection.products %}
+            {% include 'product-grid-item' %}
+          {% endfor %}
+          </div>
+        {% else %}
+          <p id="no-products">{{ 'collections.general.empty_collection_message' | t }}</p>
         {% endif %}
-        {% if collection_type == 'NOVV-COLLECT...'%}
-          <div><img src="{{ 'sana-brand.png' | asset_url }}" class="img-responsive"/></div>
-        {% endif %}
-        <span>
-          {% assign collection_description = collection.description | strip_html | remove_first: 'SANA-COLLECTION:' %}
-          {{ collection_description }}
-        </span>
+        <!--END PRODUCT GRID-->
       </div>
     </div>
-
-    <div class="col-sm-8">
-      <!--START PRODUCT GRID-->
-      {% if collection.products.size > 0 %}
-        <div class="row upper-right-row">
-          <div class="col-sm-9">
-            {% if collection.description.size > 0 %}
-            {% include 'collection-sort' %}
-            {% endif %}
-          </div>
-          <div class="col-sm-3">
-            {% include 'paging' %}
-          </div>
-        </div>
-        <div class="row">
-        {% for product in collection.products %}
-          {% include 'product-grid-item' %}
-        {% endfor %}
-        </div>
-      {% else %}
-        <p id="no-products">{{ 'collections.general.empty_collection_message' | t }}</p>
-      {% endif %}
-      <!--END PRODUCT GRID-->
-    </div>
   </div>
+  <!--END HERO-->
 </div>
-<!--END HERO-->
+
 
 
 {% endpaginate %}
