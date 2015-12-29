@@ -42,7 +42,7 @@
       "no_results_html": "No results found for <span>{{ terms }}<\/span>",
       "results_html": "Showing results for <span>{{ terms }}<\/span>",
       "no_products": "There are no products in this view.",
-      "no_search_html": "No search performed. If you are looking for something, please try our <a href=\"\/\">homepage<\/a>.",
+      "no_search_html": "No search performed. Please type something in the search box.",
       "search_form_submit": "Search"
     },
     "social": {
