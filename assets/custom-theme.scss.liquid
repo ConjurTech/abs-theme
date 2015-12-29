@@ -32,7 +32,7 @@ a {
 }
 
 #landing-page-image {
-  background-image: url({{'landing-splash.jpg' | asset_url}});
+  background-image: url({{'home-splash.png' | asset_url}});
   height: 100vh;
 }
 
@@ -66,11 +66,9 @@ a {
 .minicart-wrapper {
   margin-top: $nav-links-top-offset;
   height: 31px;
-  display: flex;
-  align-items: center;
-  .toggle-drawer.cart  {
-    background-repeat: no-repeat;
-    background-image: url({{'shopping-bag.png' | asset_url}});
+  .cart-icon {
+    margin-top: 3px;
+    width: 20px;
   }
 }
 
@@ -378,6 +376,9 @@ footer {
     }
     .details, .rating {
       font-size: 20px;
+    }
+    .details {
+      margin: 10px 0;
     }
     .description {
       border-bottom: 1px solid black;
