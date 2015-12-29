@@ -6,8 +6,15 @@
 			{% if on_sale  %}<div class="sale">{{ 'collections.products.sale' | t }}</div>{% endif %}
 			{% unless product.available %}<div class="sold-out">{{ 'collections.products.sold_out' | t }}</div>{% endunless %}
 			<img src="{{ product.featured_image.src | product_img_url: '1024x1024' }}" alt="{{ product.featured_image.alt | escape }}" class="img-responsive" />
-			<div class="text-center">{{ product.title }}</div>
-			<div class="text-center">{% assign price = product.price | money %}{% if product.price_varies %}{{ 'collections.products.from_text_html' | t: price: price }}{% else %}{{ price }}{% endif %}{% if on_sale == true %} <del>{{ product.compare_at_price | money }}</del>{% endif %}</div>
+			<div class="title">{{ product.title }}</div>
+			<div class="details">
+				<span class="type">
+					{{ product.type }}
+				</span>
+				<span class="price">
+					{% assign price = product.price | money %}{% if product.price_varies %}{{ 'collections.products.from_text_html' | t: price: price }}{% else %}{{ price }}{% endif %}{% if on_sale == true %} <del>{{ product.compare_at_price | money }}</del>{% endif %}
+				</span>
+			</div>
 		</a>
 	</div>
 </div>

@@ -256,11 +256,11 @@
         <form action="/search" method="get" class="search-form" role="search">
             <input type="hidden" name="type" value="product" />
             {% if template == "search" and search.performed and search.terms != "" %}
-            <input type="text" name="q" id="search-field" class="search" value="{{ search.terms | escape }}" placeholder="{{ 'general.search.search_form_submit' | t }}"/>
+            <input class="search" placeholder="{{ 'general.search.search_form_submit' | t }}" name="q" type="text" id="search-field" value="{{ search.terms | escape }}" />
             {% else %}
             <input class="search" placeholder="{{ 'general.search.search_form_submit' | t }}" name="q" type="text" id="search-field"  />
+            {% endif %}
             <input type="submit" id="search-submit" class="icon {% if settings.light_search_icon %}light{% endif %}" />
-          {% endif %}
         </form>
       </div>
       {% endif %}

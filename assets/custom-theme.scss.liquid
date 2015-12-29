@@ -131,17 +131,17 @@ a {
   #search-field {
     display: inline !important;
     border: 1px solid $light-pink !important;
-    height: 21px;
+    height: 23px;
     margin: -5px -5px 0 0;
   }
   #search-submit {
     border: 1px solid $light-pink;
     border-radius: 0;
-    line-height: 10px;
-    height: 21px;
-    width: 21px;
-    background: url({{ 'sprite.png' | asset_url }}) -9px -130px no-repeat !important;
-    background-size: 11px 11px;
+    line-height: 13px;
+    height: 23px;
+    width: 23px;
+    background: url({{ 'icon-search.png' | asset_url }}) center no-repeat !important;
+    background-size: 15px 15px !important;
     border: 1px solid $light-pink !important;
     text-indent: -10000px;
     padding: 5px;
@@ -205,6 +205,7 @@ footer {
 .brand-image-wrapper {
   padding: 10px;
   background-color: #f4d0da;
+  font-weight: bold;
 }
 
 // Reviews
@@ -260,7 +261,7 @@ footer {
 // Paging
 #paging {
   padding: 0 !important;
-  font-size: 18px !important;
+  font-size: 20px !important;
   .current {
     color: black !important;
   }
@@ -279,12 +280,20 @@ footer {
 // Products
 .product-grid-item a {
   color: black;
+  font-size: 22px;
+  font-weight: bold;
   &:hover {
     color: black;
     text-decoration: none;
   }
   &:visited {
     color: black;
+  }
+  .title {
+    border-bottom: 2px solid $light-pink;
+  }
+  .price {
+    float: right;
   }
 }
 
@@ -314,12 +323,12 @@ footer {
 // Collection
 #default-collection-page {
   .upper-row {
-    font-size: 18px !important;
+    font-size: 20px !important;
     margin-bottom: 0;
     padding-bottom: 20px;
   }
   .description {
-    font-size: 18px;
+    font-weight: bold;
     padding-top: 10px;
   }
 }
