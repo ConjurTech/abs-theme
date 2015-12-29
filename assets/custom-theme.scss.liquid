@@ -51,54 +51,74 @@ div.container.upper, div#page-content {
 }
 
 // Header
-.main-header-wrapper-top {
-  display: flex;
-  text-align: center;
-}
-.main-header-wrapper-bottom {
-  text-align: center;
-}
-.main-header-label {
+.main-header-container {
   width: 100%;
-  line-height: 40px;
-  font-size: 50px;
-  font-weight: bold;
+  color: $dark-pink;
+  text-align: center;
   text-transform: uppercase;
-  color: $dark-pink;
-}
-.main-header-inline {
-  display: inline;
-}
-.main-header-subtitle {
-  color: $dark-pink;
-}
-.main-header-subtitle::after {
-  border: 1px solid black;
+  .title {
+    min-height: 40px;
+    line-height: 40px;
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  .subtitle {
+    display: block;
+    position: relative;
+    z-index: 2;
+    font-size: 11px;
+    width: 140px;
+    height: 20px;
+    line-height: 20px;
+    margin: auto;
+    margin-bottom: -14px;
+    background: white;
+  }
+  .top-border:after {
+    content: " ";
+    z-index: 1;
+    display: block;
+    position: relative;
+    width: 100%;
+    border-top: 1px solid $dark-pink;
+  }
+  .bottom-border:after {
+    content: " ";
+    z-index: 1;
+    display: block;
+    position: relative;
+    width: calc(100% - 40px);
+    margin: 0 20px;
+    height: 10px;
+    border-bottom: 1px solid $dark-pink;
+  }
 }
 
+
 #product-search {
-  input.icon {
-    float: left;
-    background: url({{ 'sprite.png' | asset_url }}) -9px -130px no-repeat !important;
-    width: 11px;
-    height: 11px;
-    border: none !important;
-    text-indent: -10000px;
-    padding: 0;
-    margin: 5px 5px 0px 5px;
+  text-align: right;
+  form {
+    margin: -55px 10px 55px 0;
   }
-  input.search {
-    float: left;
-    width: 130px;
+  #search-field {
+    display: inline !important;
+    border: 1px solid $light-pink !important;
+    height: 21px;
+    margin: -5px -5px 0 0;
+  }
+  #search-submit {
     border: 1px solid $light-pink;
+    border-radius: 0;
+    line-height: 10px;
+    height: 21px;
+    width: 21px;
+    background: url({{ 'sprite.png' | asset_url }}) -9px -130px no-repeat !important;
+    background-size: 11px 11px;
+    border: 1px solid $light-pink !important;
+    text-indent: -10000px;
     padding: 5px;
-    margin-bottom: 0;
-    margin-left: 5px;
-    margin-top: -2px;
-  }
-  .search-wrapper {
-    display: flex;
-    margin-right: 20px;
+    margin: 0;
   }
 }
 

@@ -74,7 +74,7 @@
 						<div class="col-sm-12 description">{{ product.description }}</div>
 					</div>
 
-					<div class="row">
+					<!-- <div class="row">
 						<div class="col-sm-12 write-a-review">
 							<div class="row">
 								<div class="col-sm-1">
@@ -85,10 +85,10 @@
 								</div>
 							</div>
 						</div>
-					</div>
+					</div> -->
 
 					<div class="row">
-						<!-- TODO: REVIEW STUFF GOES HERE  -->
+						<div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
 					</div>
 
 					{% assign hide_default_title = false %}
