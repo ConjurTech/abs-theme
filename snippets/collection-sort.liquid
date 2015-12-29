@@ -1,17 +1,46 @@
 <div>
   <span class="sort-by-inline">Category</span>
   <select class="sort-by sort-by-inline">
-    <option value="manual">{{ 'collections.collection_sorting.featured' | t }}</option>
-    <option value="price-ascending">{{ 'collections.collection_sorting.price_ascending' | t }}</option>
-    <option value="price-descending">{{ 'collections.collection_sorting.price_decending' | t }}</option>
-    <option value="title-ascending">{{ 'collections.collection_sorting.alphabetical_ascending' | t }}</option>
-    <option value="title-descending">{{ 'collections.collection_sorting.alphabetical_decending' | t }}</option>
-    <option value="created-ascending">{{ 'collections.collection_sorting.date_ascending' | t }}</option>
-    <option value="created-descending">{{ 'collections.collection_sorting.date_decending' | t }}</option>
-    <option value="best-selling">{{ 'collections.collection_sorting.best_selling' | t }}</option>
+    <option value="all">All</option>
+    <option value="skin-care">Skin Care</option>
+    <option value="make-up">Make Up</option>
+    <option value="hair-care">Hair Care</option>
+    <option value="body-care">Body Care</option>
   </select>
 </div>
+
 <script>
+  var tag = '{{current_tags.first}}';
+  var containsTag = ['skin-care', 'make-up', 'hair-care', 'body-care'];
+  if(containsTag.indexOf(tag) !== -1) {
+    $('.sort-by').val(tag);
+  }
+
+  $(function() {
+    $('.sort-by').change(function(e) {
+      var collectionUrl = '{{collection.url}}'
+      switch(this.value) {
+        case "all":
+          window.location = collectionUrl;
+          break;
+        case "skin-care":
+          window.location = collectionUrl+'/skin-care';
+          break;
+        case "make-up":
+          window.location = collectionUrl+'/make-up';
+          break;
+        case "hair-care":
+          window.location = collectionUrl+'/hair-care';
+          break;
+        case "body-care":
+          window.location = collectionUrl+'/body-care';
+          break;
+      }
+
+    });
+  });
+</script>
+<!-- <script>
 Shopify.queryParams = {};
 if (location.search.length) {
   for (var aKeyValue, i = 0, aCouples = location.search.substr(1).split('&'); i < aCouples.length; i++) {
@@ -27,4 +56,4 @@ jQuery('.sort-by')
     Shopify.queryParams.sort_by = jQuery(this).val();
     location.search = jQuery.param(Shopify.queryParams).replace(/\+/g, '%20');
   });
-</script>
+</script> -->

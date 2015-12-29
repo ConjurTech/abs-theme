@@ -142,7 +142,7 @@
   <!--START HEADER-->
   <header>
     <!--START CONTAINER-->
-    <div class="container-fluid" id="desktop-nav">
+    <div class="container-fluid" id="desktop-nav" style="display: none;">
       <div class="row">
         <div class="col-sm-offset-1 col-sm-1">
           <a href="/">
@@ -206,7 +206,7 @@
     </nav>
   </div>
   <script>
-  if ($(window).width() > 768) {
+  if ($(window).width() >= 768) {
     $("#desktop-nav").show();
   } else {
     $("#sidebar").show();

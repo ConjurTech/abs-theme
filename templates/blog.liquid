@@ -8,9 +8,7 @@
         {% for tag in blog.all_tags %}
         <li>{{ tag | highlight_active_tag | link_to_tag: tag }}</li>
         {% endfor %}
-        {% if current_tags %}
         <li><small>{{ 'All' | link_to: blog.url }}</small></li>
-        {% endif %}
       </li>
     </div>
     <div class="col-xs-12 col-sm-10">
