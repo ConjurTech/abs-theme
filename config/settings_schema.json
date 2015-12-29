@@ -262,6 +262,35 @@
     ]
   },
   {
+    "name": "What's New Page",
+    "settings": [
+      {
+        "type": "image",
+        "id": "wn_image_1.png",
+        "label": "Image 1",
+        "info": "Must be at least 1140px wide"
+      },
+      {
+        "type": "image",
+        "id": "wn_image_2.png",
+        "label": "Image 2",
+        "info": "Must be at least 1140px wide"
+      },
+      {
+        "type": "image",
+        "id": "wn_image_3.png",
+        "label": "Image 3",
+        "info": "Must be at least 1140px wide"
+      },
+      {
+        "type": "image",
+        "id": "wn_image_4.png",
+        "label": "Image 4",
+        "info": "Must be at least 1140px wide"
+      }
+    ]
+  },
+  {
     "name": "Review page",
     "settings": [
       {
