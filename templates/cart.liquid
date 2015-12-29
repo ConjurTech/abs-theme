@@ -1,69 +1,79 @@
-{% include 'breadcrumb' %}
-<h1>{{ 'cart.general.title' | t }}</h1>
-<section id="cart">
-  {% if cart.announcements.size > 0 %}
-  <h3>
-    <ul class="cart-banner">
-      {% for announcement in cart.announcements %}
-      <li>{{ announcement }}</li>
+<div class="container-fluid">
+  <section id="cart">
+    {% if cart.announcements.size > 0 %}
+    <h3>
+      <ul class="cart-banner">
+        {% for announcement in cart.announcements %}
+        <li>{{ announcement }}</li>
+        {% endfor %}
+      </ul>
+    </h3>
+    {% endif %}
+    {% if cart.errors.size > 0 %}
+    <ul class="cart-banner error">
+      {% for error in cart.errors %}
+      <li>{{ error }}</li>
       {% endfor %}
     </ul>
-  </h3>
-  {% endif %}
-  {% if cart.errors.size > 0 %}
-  <ul class="cart-banner error">
-    {% for error in cart.errors %}
-    <li>{{ error }}</li>
-    {% endfor %}
-  </ul>
-  {% endif %}
-  {% if cart.item_count > 0 %}
+    {% endif %}
+    {% if cart.item_count > 0 %}
     <form action="/cart" method="post" name="cartform">
-    <!--START CART CONTENTS-->
-      <div class="twelve columns alpha omega">
-      <!-- START HEADERS-->
-        <div class="headers clearfix">
-          <div class="six columns alpha description">
+      <!--START CART CONTENTS-->
+      <div class="col-xs-12 col-md-10 bordered">
+        <!-- START HEADERS-->
+        <div class="headers row">
+          <div class="col-xs-6 description">
             {{ 'cart.labels.description' | t }}
           </div>
-          <div class="two columns price desktop">
+          <div class="col-xs-2 price hidden-xs">
             {{ 'cart.labels.price' | t }}
           </div>
-          <div class="one columns quantity desktop">
+          <div class="col-xs-3 col-sm-1 quantity">
             {{ 'cart.labels.quantity' | t }}
           </div>
-          <div class="two columns total desktop">
+          <div class="col-xs-2 total hidden-xs">
             <span>{{ 'cart.labels.total' | t }}</span>
           </div>
         </div>
         <!-- END HEADERS-->
         {% for item in cart.items %}
         <!-- START ROW-->
-          <div class="row">
-            <div class="six columns alpha description">
-              <img src="{{ item | img_url: 'compact' }}" alt="{{ item.title | escape }}" />
-              <div class="info">
-                <h3><a href="{{ item.url | within: collections.all }}">{{ item.title }}</a></h3>
-                <h4>{{ item.vendor }}</h4>
-                <p>{{ item.product.description | strip_html | truncatewords: 20 }}</p>
+        <div class="row cart-row">
+          <div class="col-xs-6 description">
+            <div class="row">
+              <div class="col-xs-12 col-md-3">
+                <img src="{{ item | img_url: 'compact' }}" alt="{{ item.title | escape }}" />
+              </div>
+              <div class="col-xs-12 col-md-9">
+                <div class="info">
+                  <h3>{{ item.title }}</h3>
+                  <h3>{{ item.product.type }}</h4>
+                    {% for variant in item.product.variants %}
+                    {% if forloop.first %}
+                    <span class="subtitle">{{ variant.sku }}</span>
+                    {% endif %}
+                    {% endfor %}
+                    <p>{{ item.product.description | strip_html | truncatewords: 15 }}</p>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="two columns price desktop">
+            <div class="col-xs-2 price hidden-xs">
               {{ item.price | money }}
             </div>
-            <div class="one columns quantity tr">
-              <input type="text" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" /> 
+            <div class="col-xs-3 col-sm-1 quantity">
+              <input type="text" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" />
               <div class="mobile">
                 {% if item.original_line_price != item.line_price %}
                 <small class="cart-item__original-price"><s>{{ item.original_line_price | money }}</s></small>
                 {% endif %}
-                {{ item.line_price | money }} 
+                {{ item.line_price | money }}
                 {% for discount in item.discounts %}
-                  <small class="cart-item__discount">{{ discount.title }}</small>
+                <small class="cart-item__discount">{{ discount.title }}</small>
                 {% endfor %}
               </div>
             </div>
-            <div class="two columns total desktop">
+            <div class="col-xs-2 total hidden-xs">
               <span>
                 {% if item.original_line_price != item.line_price %}
                 <small class="cart-item__original-price"><s>{{ item.original_line_price | money }}</s></small>
@@ -74,60 +84,62 @@
                 {% endfor %}
               </span>
             </div>
-            <div class="one column remove omega desktop">
-              <a href="/cart/change?line={{ forloop.index }}&quantity=0" rel="{{ item.id }}">x</a>
+            <div class="col-xs-1 remove">
+              <a href="/cart/change?line={{ forloop.index }}&quantity=0" rel="{{ item.id }}">x remove</a>
             </div>
           </div>
-        <!-- END ROW-->
-        {% endfor %}
-      </div>
-      <!--END CART CONTENTS-->
-      <br class="clear">
-      <!--START TOTAL-->
-      <div class="twelve columns alpha omega row">
-        <div class="six columns alpha continue-shopping"><a href="/collections/all">{{ 'cart.general.continue_link' | t }}</a></div>
-        {% assign cart_price = cart.total_price | money %}
-        <div class="six columns omega cart total">
-          {% if cart.discounts.size > 0 %}
-          <div class="cart-additional-savings">
-            <h2>
-              <span class="label cart-additional-savings__label">{{ 'cart.general.additional_savings' | t }}</span>
-              <span class="h3 cart-additional-savings__price">{{ cart.discount.total_savings | money }}</span>
-              {% for discount in cart.discounts %}
-                <small class="cart-additional-savings__savings">{{ discount.title }}</small>
-              {% endfor %}
-            </h2>
-          </div>
-          {% endif %}
-          <h2>{{ 'cart.general.cart_total_html' | t: price: cart_price }}
-          {% if cart.total_discounts > 0 %}
-            {% assign savings = cart.total_discounts | money %}
-            <small class="cart-subtotal__savings">{{ 'cart.general.savings_html' | t: price: savings }}</small>
-          {% endif %}
-          </h2>
+          <!-- END ROW-->
+          {% endfor %}
         </div>
-      </div>
-      <!--END TOTAL-->
-      <br class="clear">
-      <!-- START ACTIONS -->
-      <div class="twelve columns alpha omega">
-        <div class="five columns alpha">
-          <textarea id="note" name="note" placeholder="{{ 'cart.general.cart_note_placeholder' | t }}">{{ cart.note }}</textarea>
-        </div>
-        <div class="seven columns omega actions">
-          <p class="cart-subtotal__note"><em>{{ 'cart.general.taxes_extra' | t }}</em></p>
-          <input type="submit" id="update" name="update" value="{{ 'cart.general.update' | t }}" />
-          <input type="submit" id="checkout" name="checkout" value="{{ 'cart.general.check_out' | t }}" />
-          {% if additional_checkout_buttons %}
-            <div style="clear:both">
-              {{ content_for_additional_checkout_buttons }}
+        <!--END CART CONTENTS-->
+        <!--START TOTAL-->
+        <div class="col-xs-12 col-md-2 right-column">
+          <div class="row bordered smaller total-wrapper">
+            {% assign cart_price = cart.total_price | money %}
+            <div class="col-xs-12 cart total">
+              {% if cart.discounts.size > 0 %}
+              <div class="cart-additional-savings">
+                <h2>
+                  <span class="label cart-additional-savings__label">{{ 'cart.general.additional_savings' | t }}</span>
+                  <span class="h3 cart-additional-savings__price">{{ cart.discount.total_savings | money }}</span>
+                  {% for discount in cart.discounts %}
+                  <small class="cart-additional-savings__savings">{{ discount.title }}</small>
+                  {% endfor %}
+                </h2>
+              </div>
+              {% endif %}
+              <h2>{{ 'cart.general.cart_total_html' | t: price: cart_price }}
+                {% if cart.total_discounts > 0 %}
+                {% assign savings = cart.total_discounts | money %}
+                <small class="cart-subtotal__savings">{{ 'cart.general.savings_html' | t: price: savings }}</small>
+                {% endif %}
+              </h2>
+              <p class="cart-subtotal__note"><em>{{ 'cart.general.taxes_extra' | t }}</em></p>
             </div>
-          {% endif %}
+          </div>
+          <!--END TOTAL-->
+          <!-- START ACTIONS -->
+          <div class="row bordered smaller">
+            <div class="col-xs-12">
+              <textarea id="note" name="note" placeholder="{{ 'cart.general.cart_note_placeholder' | t }}">{{ cart.note }}</textarea>
+            </div>
+            <div class="col-xs-12 actions">
+              <input type="submit" id="checkout" name="checkout" value="{{ 'cart.general.check_out' | t }}" />
+              <input type="submit" id="update" name="update" value="{{ 'cart.general.update' | t }}" />
+              <div class="continue-shopping"><a href="/collections/all">{{ 'cart.general.continue_link' | t }}</a></div>
+              {% if additional_checkout_buttons %}
+              <div style="clear:both">
+                {{ content_for_additional_checkout_buttons }}
+              </div>
+              {% endif %}
+              <p class="extra">Order is eligible for <strong>FREE DELIVERY</strong> 2-5 working days delivery</p>
+            </div>
+          </div>
         </div>
-      </div>
-      <!-- END ACTIONS -->
-    </form>
-  {% else %}
-    <p>{{ 'cart.general.empty_cart_message_html' | t }}</p>
-  {% endif %}
-</section>
+        <!-- END ACTIONS -->
+      </form>
+      {% else %}
+      <p>{{ 'cart.general.empty_cart_message_html' | t }}</p>
+      {% endif %}
+    </section>
+  </div>

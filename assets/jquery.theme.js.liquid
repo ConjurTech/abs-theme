@@ -762,6 +762,7 @@ jQuery(function($){
 
       function animate() {
 
+        $("html, body").animate({ scrollTop: 0 }, "slow");
         $("#cart-animation").show();
 
         var addtocartWidth = elem.outerWidth() / 2;
