@@ -19,7 +19,7 @@
     {% if cart.item_count > 0 %}
     <form action="/cart" method="post" name="cartform">
       <!--START CART CONTENTS-->
-      <div class="col-xs-12 col-md-10 bordered">
+      <div class="col-xs-12 col-md-9 col-lg-10 bordered">
         <!-- START HEADERS-->
         <div class="headers row">
           <div class="col-xs-6 description">
@@ -93,7 +93,7 @@
         </div>
         <!--END CART CONTENTS-->
         <!--START TOTAL-->
-        <div class="col-xs-12 col-md-2 right-column">
+        <div class="col-xs-12 col-md-3 col-lg-2 right-column">
           <div class="row bordered smaller total-wrapper">
             {% assign cart_price = cart.total_price | money %}
             <div class="col-xs-12 cart total">

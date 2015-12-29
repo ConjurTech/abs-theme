@@ -173,6 +173,7 @@ footer {
     margin-left: -4px;
     height: 30px;
     font-size: 16px;
+    line-height: 16px;
     padding: 8px 10px;
     &:hover {
       background: $blue!important;
@@ -421,14 +422,15 @@ footer {
 
 // Review form
 .spr-form-title {
-  font-size: 22px;
+  font-size: 24px!important;
 }
 .spr-form-input {
-  font-size: 22px!important;
+  font-size: 20px!important;
 }
 
 // Bestsellers page
 #bestsellers-page {
+  font-weight: bold;
   min-height: 100vh;
   a {
     color: black;
@@ -443,7 +445,6 @@ footer {
   .left-wrapper {
     padding-right: 0px;
     h1 {
-      font-weight: normal;
       padding-bottom: 5px;
       border-bottom: 1px solid black;
     }
@@ -456,9 +457,10 @@ footer {
     .categories {
       font-size: 24px;
       padding: 10px 20px;
+      margin-bottom: 10px;
     }
     .categories.first-child {
-      margin-top: 40px
+      margin-top: 20px
     }
   }
 
@@ -478,10 +480,8 @@ footer {
             margin: 0px;
             .product-title {
               font-size: 22px;
-              padding-bottom: 10px;
               border-bottom: 1px solid $light-pink;
             }
-
             .product-title-inline {
               display: inline-block;
             }
@@ -496,6 +496,9 @@ footer {
 #cart {
   font-family: 'PT Sans', sans-serif;
   font-size: 15px;
+  > form > div {
+    margin-bottom: 10px;
+  }
   .headers {
     border-top: 1px solid $light-pink !important;
     border-bottom: 1px solid $light-pink !important;
@@ -538,13 +541,13 @@ footer {
     border-right: 1px solid $light-pink !important;
   }
   .smaller {
-    margin-left: 10px;
-    @media (max-width: 767px) {
-      margin-left: 0;
+    @media (min-width: 992px) {
+      margin-left: 10px;
     }
   }
   .cart-subtotal__note {
     font-size: 80%;
+    text-align: right;
   }
   .right-column {
     h1, h2, h3, h4, h5, h6 {
@@ -562,6 +565,7 @@ footer {
     input, a {
       display: inline-block;
       width: 80%;
+      color: #333;
       border: 1px solid $light-pink !important;
       padding: 10px 20px;
       margin-bottom: 10px;
@@ -579,7 +583,7 @@ footer {
       padding: 5px 20px;
     }
     #checkout {
-      font-size: 16px;
+      font-size: 14px;
       color: white;
       background: $light-pink !important;
       &:hover, &:focus {
@@ -597,7 +601,8 @@ footer {
 #awards-page {
   padding-top: 50px;
   li {
-    padding: 20px 0;
+    padding: 10px 0;
+    font-size: 30px;
     a {
       color: black;
       text-decoration: none;
@@ -756,5 +761,15 @@ footer {
     background-color: $dark-pink;
     color: white;
     padding: 5px 35px;
+  }
+}
+
+// Whats new page
+#carousel-whats-new {
+  .carousel-control {
+    color: $light-pink;
+    &:hover, &:visited, &:focus {
+      color: $light-pink;
+    }
   }
 }
