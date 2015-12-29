@@ -23,3 +23,24 @@ $(document).on('click', '.video-nav', function(e) {
   //$('.video-description').html($(this).data('description'));
 });
 //-- End review video navigation
+
+//-- Awards page
+function goToByScroll(id){
+      // Remove "link" from the ID
+    var id = id.replace("-link", "");
+      // Scroll
+    $('html,body').animate({
+        scrollTop: $("#"+id).offset().top},
+        'slow');
+}
+
+$(function() {
+  $(".year-list li > a").click(function(e) {
+    e.preventDefault();
+    $('.year-list a').removeClass('active');
+    $(this).addClass('active');
+    goToByScroll(this.id);
+  });
+});
+
+//-- End Awards page
