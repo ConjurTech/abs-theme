@@ -32,10 +32,10 @@ div.container.upper, div#page-content {
     a {
       color: $green;
       font-weight: 300;
-      font-size: 26px;
+      font-size: 20px;
       line-height: 26px;
       margin: 0px !important;
-      padding: 0 10px;
+      padding: 0 8px;
       border-right: solid 2px $light-pink;
       &:visited {
         color: $green;
@@ -53,6 +53,9 @@ div.container.upper, div#page-content {
 
 .minicart-wrapper {
   margin-top: $nav-links-top-offset;
+  height: 31px;
+  display: flex;
+  align-items: center;
   .toggle-drawer.cart  {
     background-repeat: no-repeat;
     background-image: url({{'shopping-bag.png' | asset_url}});
