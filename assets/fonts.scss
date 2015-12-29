@@ -1,0 +1,45 @@
+// Use Myriad Pro for san-serif types
+@font-face {
+  font-family: 'Myriad Pro';
+  font-style: normal;
+  font-weight: normal;
+  src: url({{'MYRIADPRO-REGULAR.woff' | asset_url}}) format('woff');
+}
+
+@font-face {
+  font-family: 'Myriad Pro';
+  font-style: normal;
+  font-weight: bold;
+  src: url({{'MYRIADPRO-SEMIBOLD.woff' | asset_url}}) format('woff');
+}
+
+@font-face {
+  font-family: 'Myriad Pro';
+  font-style: normal;
+  font-weight: 500;
+  src: url({{'MYRIADPRO-BOLD.woff' | asset_url}}) format('woff');
+}
+
+// Main font
+@font-face {
+  font-family: 'Arabic Typesetting';
+  font-style: normal;
+  font-weight: normal;
+  src: url({{'Arabic Typesetting.ttf' | asset_url}});
+}
+
+// Adobe Song looks similar as Arabic Typesetting but is thinner
+@font-face {
+  font-family: 'Adobe Song Std L';
+  font-style: normal;
+  font-weight: normal;
+  src: url({{'Adobe Song Std L.ttf' | asset_url}});
+}
+
+// Use Lucida Handwriting for italic fonts
+@font-face {
+  font-family: 'Lucida Handwriting';
+  font-style: normal;
+  font-weight: normal;
+  src: url({{'Lucida Handwriting Italic.ttf' | asset_url}});
+}
