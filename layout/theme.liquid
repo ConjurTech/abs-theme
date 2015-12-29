@@ -241,6 +241,12 @@
           {% if template contains "cart" %}
             {{ 'cart.general.title' | t }}
           {% endif %}
+          {% if template contains "blog" %}
+            {{ blog.title }}
+          {% endif %}
+          {% if template contains "article" %}
+            {{ article.title }}
+          {% endif %}
         </div>
         <div class="subtitle">FOR NIPPON BEAUTY</div>
         <div class="top-border"></div><div class="bottom-border"></div>
