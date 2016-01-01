@@ -1,3 +1,12 @@
+$brand-header-1-color: #f2b1c6;
+$brand-header-2-color: #f8deca;
+$brand-header-3-color: #814723;
+$brand-header-4-color: #369f9b;
+$brand-header-5-color: #abd9c6;
+$brand-header-6-color: #ef6833;
+$brand-header-7-color: #b1d7e9;
+
+
 $light-pink: #f3afc5;
 $dark-pink: #d72756;
 $green: #1caca3;
@@ -33,6 +42,7 @@ a {
 
 #landing-page-image {
   background-image: url({{'home-splash.png' | asset_url}});
+  background-size: cover;
   height: 100vh;
 }
 
@@ -53,6 +63,9 @@ a {
         color: $green;
       }
       &:hover {
+        background-image: url({{'nav-mouse-over.jpg' | asset_url}});
+        background-size: contain;
+        text-decoration: none;
         color: $green;
       }
       &:first-child  {
@@ -131,6 +144,71 @@ a {
     height: 10px;
     border-bottom: 1px solid $light-pink;
   }
+
+  .top-border.custom-header-1:after {
+    border-color: $brand-header-1-color;
+  }
+  .bottom-border.custom-header-1:after {
+    border-color: $brand-header-1-color;
+  }
+  .top-border.custom-header-2:after {
+    border-color: $brand-header-2-color;
+  }
+  .bottom-border.custom-header-2:after {
+    border-color: $brand-header-2-color;
+  }
+  .top-border.custom-header-3:after {
+    border-color: $brand-header-3-color;
+  }
+  .bottom-border.custom-header-3:after {
+    border-color: $brand-header-3-color;
+  }
+  .top-border.custom-header-4:after {
+    border-color: $brand-header-4-color;
+  }
+  .bottom-border.custom-header-4:after {
+    border-color: $brand-header-4-color;
+  }
+  .top-border.custom-header-5:after {
+    border-color: $brand-header-5-color;
+  }
+  .bottom-border.custom-header-5:after {
+    border-color: $brand-header-5-color;
+  }
+  .top-border.custom-header-6:after {
+    border-color: $brand-header-6-color;
+  }
+  .bottom-border.custom-header-6:after {
+    border-color: $brand-header-6-color;
+  }
+  .top-border.custom-header-7:after {
+    border-color: $brand-header-7-color;
+  }
+  .bottom-border.custom-header-7:after {
+    border-color: $brand-header-7-color;
+  }
+}
+
+.main-header-container.custom-header-1 {
+  color: $brand-header-1-color;
+}
+.main-header-container.custom-header-2 {
+  color: $brand-header-2-color;
+}
+.main-header-container.custom-header-3 {
+  color: $brand-header-3-color;
+}
+.main-header-container.custom-header-4 {
+  color: $brand-header-4-color;
+}
+.main-header-container.custom-header-5 {
+  color: $brand-header-5-color;
+}
+.main-header-container.custom-header-6 {
+  color: $brand-header-6-color;
+}
+.main-header-container.custom-header-7 {
+  color: $brand-header-7-color;
 }
 
 #product-search {
@@ -217,6 +295,27 @@ footer {
   padding: 10px;
   background-color: #f4d0da;
   font-weight: bold;
+}
+.brand-image-wrapper.custom-header-1 {
+  background-color: $brand-header-1-color;
+}
+.brand-image-wrapper.custom-header-2 {
+  background-color: $brand-header-2-color;
+}
+.brand-image-wrapper.custom-header-3 {
+  background-color: $brand-header-3-color;
+}
+.brand-image-wrapper.custom-header-4 {
+  background-color: $brand-header-4-color;
+}
+.brand-image-wrapper.custom-header-5 {
+  background-color: $brand-header-5-color;
+}
+.brand-image-wrapper.custom-header-6 {
+  background-color: $brand-header-6-color;
+}
+.brand-image-wrapper.custom-header-7 {
+  background-color: $brand-header-7-color;
 }
 
 // Reviews
@@ -361,6 +460,27 @@ footer {
       text-align: center;
       background-color: #d8dedb;
       padding: 20px;
+    }
+    .images-wrapper.custom-header-1 {
+      background-color: $brand-header-1-color;
+    }
+    .images-wrapper.custom-header-2 {
+      background-color: $brand-header-2-color;
+    }
+    .images-wrapper.custom-header-3 {
+      background-color: $brand-header-3-color;
+    }
+    .images-wrapper.custom-header-4 {
+      background-color: $brand-header-4-color;
+    }
+    .images-wrapper.custom-header-5 {
+      background-color: $brand-header-5-color;
+    }
+    .images-wrapper.custom-header-6 {
+      background-color: $brand-header-6-color;
+    }
+    .images-wrapper.custom-header-7 {
+      background-color: $brand-header-7-color;
     }
     #gallery {
       a {

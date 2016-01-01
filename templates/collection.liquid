@@ -91,7 +91,28 @@
           {% assign image_src = "vess-collection.jpg" %}
         {% endif %}
         {% if is_brand_collection == true %}
-          <div class="brand-image-wrapper">
+          <div class="brand-image-wrapper
+          {%if collection.handle == 'sana-1'%}custom-header-1
+          {%elsif collection.handle == 'sana-2'%}custom-header-1
+          {%elsif collection.handle == 'sana-3'%}custom-header-1
+          {%elsif collection.handle == 'sana-4'%}custom-header-1
+          {%elsif collection.handle == 'sana-5'%}custom-header-1
+          {%elsif collection.handle == 'sana-6'%}custom-header-1
+          {%elsif collection.handle == 'loveliner'%}custom-header-2
+          {%elsif collection.handle == 'cherrie-ribbon'%}custom-header-3
+          {%elsif collection.handle == 'time-secret'%}custom-header-4
+          {%elsif collection.handle == 'nov-1'%}custom-header-5
+          {%elsif collection.handle == 'nov-2'%}custom-header-5
+          {%elsif collection.handle == 'nov-3'%}custom-header-5
+          {%elsif collection.handle == 'nov-4'%}custom-header-5
+          {%elsif collection.handle == 'nov-5'%}custom-header-5
+          {%elsif collection.handle == 'nov-6'%}custom-header-5
+          {%elsif collection.handle == 'nov-7'%}custom-header-5
+          {%elsif collection.handle == 'nov-8'%}custom-header-5
+          {%elsif collection.handle == 'gabaiyoka'%}custom-header-6
+          {%elsif collection.handle == 'vess'%}custom-header-7
+          {%endif%}
+          ">
             {% if is_brand_collection == true %}
               <div><img src="{{ image_src | asset_url }}" class="img-responsive" width="2000"/></div>
             {% endif %}

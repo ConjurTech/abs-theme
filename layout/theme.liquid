@@ -7,6 +7,7 @@
   <title>
     {{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
   </title>
+  <link rel="shortcut icon" href="{{'favicon.ico' | asset_url}}">
   {% if page_description %}
   <meta name="description" content="{{ page_description | escape }}" />
   {% endif %}
@@ -228,7 +229,30 @@
     <div id="main">
       <!-- main header  -->
       {% if template != 'index' %}
-      <div class="main-header-container">
+      <div class="main-header-container
+        {%if page.handle == 'sana-collection'%}custom-header-1
+        {%elsif page.handle == 'nov-collection'%}custom-header-5
+        {%elsif collection.handle == 'sana-1'%}custom-header-1
+        {%elsif collection.handle == 'sana-2'%}custom-header-1
+        {%elsif collection.handle == 'sana-3'%}custom-header-1
+        {%elsif collection.handle == 'sana-4'%}custom-header-1
+        {%elsif collection.handle == 'sana-5'%}custom-header-1
+        {%elsif collection.handle == 'sana-6'%}custom-header-1
+        {%elsif collection.handle == 'loveliner'%}custom-header-2
+        {%elsif collection.handle == 'cherrie-ribbon'%}custom-header-3
+        {%elsif collection.handle == 'time-secret'%}custom-header-4
+        {%elsif collection.handle == 'nov-1'%}custom-header-5
+        {%elsif collection.handle == 'nov-2'%}custom-header-5
+        {%elsif collection.handle == 'nov-3'%}custom-header-5
+        {%elsif collection.handle == 'nov-4'%}custom-header-5
+        {%elsif collection.handle == 'nov-5'%}custom-header-5
+        {%elsif collection.handle == 'nov-6'%}custom-header-5
+        {%elsif collection.handle == 'nov-7'%}custom-header-5
+        {%elsif collection.handle == 'nov-8'%}custom-header-5
+        {%elsif collection.handle == 'gabaiyoka'%}custom-header-6
+        {%elsif collection.handle == 'vess'%}custom-header-7
+        {%endif%}
+        ">
         <div class="title">
           {% if template contains "page" %}
             {{ page.title }}
@@ -250,7 +274,54 @@
           {% endif %}
         </div>
         <div class="subtitle">FOR NIPPON BEAUTY</div>
-        <div class="top-border"></div><div class="bottom-border"></div>
+        <div class="top-border
+        {%if page.handle == 'sana-collection'%}custom-header-1
+        {%elsif page.handle == 'nov-collection'%}custom-header-5
+        {%elsif collection.handle == 'sana-1'%}custom-header-1
+        {%elsif collection.handle == 'sana-2'%}custom-header-1
+        {%elsif collection.handle == 'sana-3'%}custom-header-1
+        {%elsif collection.handle == 'sana-4'%}custom-header-1
+        {%elsif collection.handle == 'sana-5'%}custom-header-1
+        {%elsif collection.handle == 'sana-6'%}custom-header-1
+        {%elsif collection.handle == 'loveliner'%}custom-header-2
+        {%elsif collection.handle == 'cherrie-ribbon'%}custom-header-3
+        {%elsif collection.handle == 'time-secret'%}custom-header-4
+        {%elsif collection.handle == 'nov-1'%}custom-header-5
+        {%elsif collection.handle == 'nov-2'%}custom-header-5
+        {%elsif collection.handle == 'nov-3'%}custom-header-5
+        {%elsif collection.handle == 'nov-4'%}custom-header-5
+        {%elsif collection.handle == 'nov-5'%}custom-header-5
+        {%elsif collection.handle == 'nov-6'%}custom-header-5
+        {%elsif collection.handle == 'nov-7'%}custom-header-5
+        {%elsif collection.handle == 'nov-8'%}custom-header-5
+        {%elsif collection.handle == 'gabaiyoka'%}custom-header-6
+        {%elsif collection.handle == 'vess'%}custom-header-7
+        {%endif%}
+        "></div>
+        <div class="bottom-border
+        {%if page.handle == 'sana-collection'%}custom-header-1
+        {%elsif page.handle == 'nov-collection'%}custom-header-5
+        {%elsif collection.handle == 'sana-1'%}custom-header-1
+        {%elsif collection.handle == 'sana-2'%}custom-header-1
+        {%elsif collection.handle == 'sana-3'%}custom-header-1
+        {%elsif collection.handle == 'sana-4'%}custom-header-1
+        {%elsif collection.handle == 'sana-5'%}custom-header-1
+        {%elsif collection.handle == 'sana-6'%}custom-header-1
+        {%elsif collection.handle == 'loveliner'%}custom-header-2
+        {%elsif collection.handle == 'cherrie-ribbon'%}custom-header-3
+        {%elsif collection.handle == 'time-secret'%}custom-header-4
+        {%elsif collection.handle == 'nov-1'%}custom-header-5
+        {%elsif collection.handle == 'nov-2'%}custom-header-5
+        {%elsif collection.handle == 'nov-3'%}custom-header-5
+        {%elsif collection.handle == 'nov-4'%}custom-header-5
+        {%elsif collection.handle == 'nov-5'%}custom-header-5
+        {%elsif collection.handle == 'nov-6'%}custom-header-5
+        {%elsif collection.handle == 'nov-7'%}custom-header-5
+        {%elsif collection.handle == 'nov-8'%}custom-header-5
+        {%elsif collection.handle == 'gabaiyoka'%}custom-header-6
+        {%elsif collection.handle == 'vess'%}custom-header-7
+        {%endif%}
+        "></div>
       </div>
       <div id="product-search" class="hidden-xs">
         <form action="/search" method="get" class="search-form" role="search">

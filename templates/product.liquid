@@ -71,7 +71,28 @@
 			</div>
 
 			<div class="col-xs-12 col-sm-pull-8 col-sm-4 col-md-pull-6 col-md-3 left-column-wrapper">
-				<div class="images-wrapper">
+				<div class="images-wrapper
+				{%if collection.handle == 'sana-1'%}custom-header-1
+        {%elsif collection.handle == 'sana-2'%}custom-header-1
+        {%elsif collection.handle == 'sana-3'%}custom-header-1
+        {%elsif collection.handle == 'sana-4'%}custom-header-1
+        {%elsif collection.handle == 'sana-5'%}custom-header-1
+        {%elsif collection.handle == 'sana-6'%}custom-header-1
+        {%elsif collection.handle == 'loveliner'%}custom-header-2
+        {%elsif collection.handle == 'cherrie-ribbon'%}custom-header-3
+        {%elsif collection.handle == 'time-secret'%}custom-header-4
+        {%elsif collection.handle == 'nov-1'%}custom-header-5
+        {%elsif collection.handle == 'nov-2'%}custom-header-5
+        {%elsif collection.handle == 'nov-3'%}custom-header-5
+        {%elsif collection.handle == 'nov-4'%}custom-header-5
+        {%elsif collection.handle == 'nov-5'%}custom-header-5
+        {%elsif collection.handle == 'nov-6'%}custom-header-5
+        {%elsif collection.handle == 'nov-7'%}custom-header-5
+        {%elsif collection.handle == 'nov-8'%}custom-header-5
+        {%elsif collection.handle == 'gabaiyoka'%}custom-header-6
+        {%elsif collection.handle == 'vess'%}custom-header-7
+        {%endif%}
+				">
 					<!-- START PRODUCT IMAGES-->
 					<div class="row">
 						<section id="images" class="alpha col-xs-12">
