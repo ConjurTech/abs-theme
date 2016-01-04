@@ -148,25 +148,52 @@
         "content": "Banner image"
       },
       {
-        "type": "checkbox",
-        "id": "show_frontpage_hero",
-        "label": "Show a banner image"
+        "type": "image",
+        "id": "home_image_1.png",
+        "label": "Image 1",
+        "info": "Must be at least 1140px wide"
+      },
+      {
+        "type": "collection",
+        "id": "home_collection_1",
+        "label": "Collection 1",
+        "info": "Image will link to this collection"
       },
       {
         "type": "image",
-        "id": "hero.jpg",
-        "label": "Image",
-        "info": "950px wide recommended"
+        "id": "home_image_2.png",
+        "label": "Image 2",
+        "info": "Must be at least 1140px wide"
       },
       {
-        "type": "text",
-        "id": "banner_url",
-        "label": "Link URL"
+        "type": "collection",
+        "id": "home_collection_2",
+        "label": "Collection 2",
+        "info": "Image will link to this collection"
       },
       {
-        "type": "text",
-        "id": "frontpage_hero_alt",
-        "label": "Image alt text"
+        "type": "image",
+        "id": "home_image_3.png",
+        "label": "Image 3",
+        "info": "Must be at least 1140px wide"
+      },
+      {
+        "type": "collection",
+        "id": "home_collection_3",
+        "label": "Collection 3",
+        "info": "Image will link to this collection"
+      },
+      {
+        "type": "image",
+        "id": "home_image_4.png",
+        "label": "Image 4",
+        "info": "Must be at least 1140px wide"
+      },
+      {
+        "type": "collection",
+        "id": "home_collection_4",
+        "label": "Collection 4",
+        "info": "Image will link to this collection"
       },
       {
         "type": "header",
