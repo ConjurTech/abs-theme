@@ -104,7 +104,7 @@
       "cart_total_html": "Total {{ price }}",
       "remove": "Remove",
       "update": "Save",
-      "check_out": "Secure Checkout",
+      "check_out": "Checkout",
       "cart_note_placeholder": "Add a note to your order...",
       "additional_savings": "Additional savings",
       "savings_html": "You're saving {{ price }}",
