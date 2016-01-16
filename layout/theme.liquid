@@ -229,39 +229,52 @@
     <div id="main">
       <!-- main header  -->
       {% if template != 'index' %}
+      {% assign sana_split = collection.handle | split: 'sana-' %}
+      {% assign nov_split = collection.handle | split: 'nov-' %}
+
       <div class="main-header-container
         {%if page.handle == 'sana-collection'%}custom-header-1
         {%elsif page.handle == 'nov-collection'%}custom-header-5
-        {%elsif collection.handle == 'sana-1'%}custom-header-1
-        {%elsif collection.handle == 'sana-2'%}custom-header-1
-        {%elsif collection.handle == 'sana-3'%}custom-header-1
-        {%elsif collection.handle == 'sana-4'%}custom-header-1
-        {%elsif collection.handle == 'sana-5'%}custom-header-1
-        {%elsif collection.handle == 'sana-6'%}custom-header-1
+        {%elsif sana_split.size > 1 %}custom-header-1
         {%elsif collection.handle == 'loveliner'%}custom-header-2
         {%elsif collection.handle == 'cherrie-ribbon'%}custom-header-3
         {%elsif collection.handle == 'time-secret'%}custom-header-4
-        {%elsif collection.handle == 'nov-1'%}custom-header-5
-        {%elsif collection.handle == 'nov-2'%}custom-header-5
-        {%elsif collection.handle == 'nov-3'%}custom-header-5
-        {%elsif collection.handle == 'nov-4'%}custom-header-5
-        {%elsif collection.handle == 'nov-5'%}custom-header-5
-        {%elsif collection.handle == 'nov-6'%}custom-header-5
-        {%elsif collection.handle == 'nov-7'%}custom-header-5
-        {%elsif collection.handle == 'nov-8'%}custom-header-5
+        {%elsif nov_split.size > 1 %}custom-header-5
         {%elsif collection.handle == 'gabaiyoka'%}custom-header-6
         {%elsif collection.handle == 'vess'%}custom-header-7
         {%endif%}
         ">
-        <div class="title">
+        <div class="title row">
           {% if template contains "page" %}
-            {{ page.title }}
+            {% if page.handle == 'sana-collection' %}
+              <div class="col-sm-offset-5 col-sm-2"><img src={{'sana_logo.png' | asset_url}}></div>
+            {% elsif page.handle == 'nov-collection' %}
+              <div class="col-sm-offset-5 col-sm-2"><img src={{'nov_logo.png' | asset_url}}></div>
+            {% else %}
+              {{ page.title }}
+            {% endif %}
           {% endif %}
           {% if template contains "product" %}
             {{ product.collections.first.title }}
           {% endif %}
           {% if template contains "collection" %}
-            {{ collection.title }}
+            {% if sana_split.size > 1 %}
+              <div class="col-sm-offset-5 col-sm-2"><img src={{'sana_logo.png' | asset_url}}></div>
+            {% elsif collection.handle == 'loveliner' %}
+              <div class="col-sm-offset-5 col-sm-2"><img src={{'loveliner_logo.jpg' | asset_url}}></div>
+            {% elsif collection.handle == 'cherrie-ribbon' %}
+              <div class="col-sm-offset-5 col-sm-2"><img src={{'ribbon_logo.png' | asset_url}}></div>
+            {% elsif collection.handle == 'time-secret' %}
+              <div class="col-sm-offset-5 col-sm-2"><img src={{'timesecret_logo.png' | asset_url}}></div>
+            {% elsif nov_split.size > 1 %}
+              <div class="col-sm-offset-5 col-sm-2"><img src={{'nov_logo.png' | asset_url}}></div>
+            {% elsif collection.handle == 'gabaiyoka' %}
+              <div class="col-sm-offset-5 col-sm-2"><img src={{'gabaiyoka_logo.jpg' | asset_url}}></div>
+            {% elsif collection.handle == 'vess' %}
+              <div class="col-sm-offset-5 col-sm-2"><img src={{'vess_logo.jpg' | asset_url}}></div>
+            {% else %}
+              {{ collection.title }}
+            {% endif %}
           {% endif %}
           {% if template contains "cart" %}
             {{ 'cart.general.title' | t }}
@@ -277,23 +290,11 @@
         <div class="top-border
         {%if page.handle == 'sana-collection'%}custom-header-1
         {%elsif page.handle == 'nov-collection'%}custom-header-5
-        {%elsif collection.handle == 'sana-1'%}custom-header-1
-        {%elsif collection.handle == 'sana-2'%}custom-header-1
-        {%elsif collection.handle == 'sana-3'%}custom-header-1
-        {%elsif collection.handle == 'sana-4'%}custom-header-1
-        {%elsif collection.handle == 'sana-5'%}custom-header-1
-        {%elsif collection.handle == 'sana-6'%}custom-header-1
+        {%elsif sana_split.size > 1 %}custom-header-1
         {%elsif collection.handle == 'loveliner'%}custom-header-2
         {%elsif collection.handle == 'cherrie-ribbon'%}custom-header-3
         {%elsif collection.handle == 'time-secret'%}custom-header-4
-        {%elsif collection.handle == 'nov-1'%}custom-header-5
-        {%elsif collection.handle == 'nov-2'%}custom-header-5
-        {%elsif collection.handle == 'nov-3'%}custom-header-5
-        {%elsif collection.handle == 'nov-4'%}custom-header-5
-        {%elsif collection.handle == 'nov-5'%}custom-header-5
-        {%elsif collection.handle == 'nov-6'%}custom-header-5
-        {%elsif collection.handle == 'nov-7'%}custom-header-5
-        {%elsif collection.handle == 'nov-8'%}custom-header-5
+        {%elsif nov_split.size > 1 %}custom-header-5
         {%elsif collection.handle == 'gabaiyoka'%}custom-header-6
         {%elsif collection.handle == 'vess'%}custom-header-7
         {%endif%}
@@ -301,23 +302,11 @@
         <div class="bottom-border
         {%if page.handle == 'sana-collection'%}custom-header-1
         {%elsif page.handle == 'nov-collection'%}custom-header-5
-        {%elsif collection.handle == 'sana-1'%}custom-header-1
-        {%elsif collection.handle == 'sana-2'%}custom-header-1
-        {%elsif collection.handle == 'sana-3'%}custom-header-1
-        {%elsif collection.handle == 'sana-4'%}custom-header-1
-        {%elsif collection.handle == 'sana-5'%}custom-header-1
-        {%elsif collection.handle == 'sana-6'%}custom-header-1
+        {%elsif sana_split.size > 1 %}custom-header-1
         {%elsif collection.handle == 'loveliner'%}custom-header-2
         {%elsif collection.handle == 'cherrie-ribbon'%}custom-header-3
         {%elsif collection.handle == 'time-secret'%}custom-header-4
-        {%elsif collection.handle == 'nov-1'%}custom-header-5
-        {%elsif collection.handle == 'nov-2'%}custom-header-5
-        {%elsif collection.handle == 'nov-3'%}custom-header-5
-        {%elsif collection.handle == 'nov-4'%}custom-header-5
-        {%elsif collection.handle == 'nov-5'%}custom-header-5
-        {%elsif collection.handle == 'nov-6'%}custom-header-5
-        {%elsif collection.handle == 'nov-7'%}custom-header-5
-        {%elsif collection.handle == 'nov-8'%}custom-header-5
+        {%elsif nov_split.size > 1 %}custom-header-5
         {%elsif collection.handle == 'gabaiyoka'%}custom-header-6
         {%elsif collection.handle == 'vess'%}custom-header-7
         {%endif%}
