@@ -226,7 +226,10 @@
   <!--END SIDEBAR-->
 
     <!--START MAIN-->
-    <div id="main">
+    {% if template == 'index' %}
+      {% assign main_class = 'full-height' %}
+    {% endif %}
+    <div id="main" class="{{ main_class }}">
       <!-- main header  -->
       {% if template != 'index' %}
       {% assign sana_split = collection.handle | split: 'sana-' %}
@@ -326,13 +329,13 @@
       {% endif %}
       <div id="page-content">
         {{ content_for_layout }}
-        <br class="clear">
       </div>
     </div>
     <!--END MAIN-->
 
     <!--START FOOTER-->
     {% if template != 'index' %}
+    <br class="clear">
     <footer>
       <div class="container">
         <section class="upper">
