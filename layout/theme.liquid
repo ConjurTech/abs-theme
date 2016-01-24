@@ -146,7 +146,7 @@
     <!--START CONTAINER-->
     <div class="container-fluid" id="desktop-nav" style="display: none;">
       <div class="row">
-        <div class="col-sm-offset-1 col-sm-1">
+        <div class="col-sm-1">
           <a href="/">
             {% if settings.use_logo %}
             {{ 'logo.png' | asset_url | img_tag: shop.name }}
@@ -155,7 +155,7 @@
             {% endif %}
           </a>
         </div>
-        <div class="col-sm-8" id="nav-link-container">
+        <div class="col-sm-10" id="nav-link-container">
           <nav>
             <a href="/#">Home</a>
             <a href="/pages/brands">Brands</a>
@@ -167,7 +167,7 @@
             <a href="/pages/awards">Awards</a>
           </nav>
         </div>
-        <div class="col-sm-2 minicart-wrapper">
+        <div class="col-sm-1 minicart-wrapper">
           <a href="/cart" class="cart-target"><img src="{{ 'shopping-bag.png' | asset_url }}" class="cart-icon"/></a>
         </div>
       </div>
