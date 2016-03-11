@@ -70,7 +70,7 @@
         {% assign collection_type = collection.description | strip_html | truncate: 15 %}
         {% if collection_type == 'SANA-COLLECT...'%}
           {% assign is_brand_collection = true %}
-          {% assign image_src = "sana-brand.png" %}
+          {% assign image_src = "sana-collection.jpg" %}
         {% elsif collection_type == 'NOVV-COLLECT...'%}
           {% assign is_brand_collection = true %}
           {% assign image_src = "nov-collection.jpg" %}
